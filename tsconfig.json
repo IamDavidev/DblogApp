@@ -9,11 +9,11 @@
       "~posts/*": [
         "src/"
       ],
-      "~layours": [
-        "src/"
+      "~layouts": [
+        "src/layouts/*"
       ],
       "~pages": [
-        "src/"
+        "src/pages/*"
       ],
       "~components": [
         "src/components/*"

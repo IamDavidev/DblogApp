@@ -1,12 +1,18 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../config';
+import { TitleBlog } from '../components/Title.component';
+
+const title = 'Dblog';
+const description =
+	'Este es un Blog en el cual podras descubrir las novedades del mundo y del entorno web. Tambien podras encotrar tutoriales de : React - Astro - Lit - Go - Phyton - TS - Arquitectura - conceptos web - programacion basica - POO - test ';
 ---
 
 <!DOCTYPE html>
 <html lang='es'>
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<BaseHead title={title} description={description} />
 	</head>
-	<body> </body>
+	<body>
+		<TitleBlog client:visible />
+	</body>
 </html>

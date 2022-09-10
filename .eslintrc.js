@@ -17,6 +17,10 @@ module.exports = {
     project: "./tsconfig.json"
   },
   rules: {
+    "@typescript-eslint/explicit-function-return-type": ["error", {
+      allowExpressions: true
+    }],
+    '@typescript-eslint/explicit-module-boundary-types': ['off'],
   },
   overrides: [
     {

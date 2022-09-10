@@ -4,6 +4,9 @@
     // "types": [
     //   "astro/'client"
     // ],
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "forceConsistentCasingInFileNames": true,
     "baseUrl": "src",
     "paths": {
       "~posts/*": [

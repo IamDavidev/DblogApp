@@ -20,6 +20,7 @@ export class TitleBlog extends LitElement {
 			padding: 2rem 0;
 			text-transform: uppercase;
 			position: relative;
+			/* text-shadow: 0 0 5px var(--white--color); */
 		}
 
 		.container__title::after {

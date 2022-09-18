@@ -1,8 +1,10 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
 
-import { TitleBlog } from '../components/Title.component';
-import NewPosts from 'layouts/newPosts/index.astro';
+import { TitleBlog } from '@components/Title';
+
+import NewPosts from '@layouts/newPosts/index.astro';
+import AllPosts from '@layouts/allPosts/index.astro';
 
 const title = 'Dblog';
 const description =
@@ -17,5 +19,6 @@ const description =
 	<body>
 		<TitleBlog client:visible />
 		<NewPosts />
+		<AllPosts />
 	</body>
 </html>

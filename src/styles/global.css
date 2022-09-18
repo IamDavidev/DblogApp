@@ -1,12 +1,4 @@
-@font-face {
-	font-family: 'Raleway-medium';
-	src: url('../assets/fonts/Raleway-Medium.ttf');
-}
-
-@font-face {
-	font-family: 'Raleway-bold';
-	src: url('../assets/fonts/Raleway-Bold.ttf');
-}
+@import './fonts.css';
 
 :root {
 	--bg--color: #171717;

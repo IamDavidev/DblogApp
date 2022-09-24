@@ -1,5 +1,9 @@
-import { css, html, LitElement, TemplateResult } from 'lit';
+import type { TemplateResult } from 'lit';
+import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
+import '~/components/ButtonAddFavorites';
+
+import Elipse from '../../../assets/images/icons/elipse.svg';
 
 interface propsPostList {
 	title: string;
@@ -56,11 +60,31 @@ export class PostList extends LitElement {
 			object-fit: cover;
 			border-radius: 1rem;
 		}
+
+		.post-info__header--title {
+			color: var(--primary--color);
+			font-family: 'Raleway-bold';
+			font-size: 32px;
+		}
+
 		.post-data {
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
 			align-items: flex-end;
+			padding: 1rem 0;
+		}
+
+		.post-info__header--update {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			gap: 0.5rem;
+		}
+		.post_data--user {
+			color: var(--effect--color);
+			font-weight: bold;
 		}
 	`;
 
@@ -76,17 +100,22 @@ export class PostList extends LitElement {
 					<div class="post-info__header">
 						<header>
 							<h2 class="post-info__header--title">${this.title}</h2>
-							<span class="post-info__header--title">${this.updatedPost}</span>
+							<div class="post-info__header--update">
+								<img src="${Elipse}" alt="icon-update" />
+								<span class="post-info__header--update"
+									>${this.updatedPost}</span
+								>
+							</div>
 						</header>
 						<p>${this.description}</p>
 					</div>
 				</div>
 				<div class="post-data">
-					<div>
+					<div class="post-data mb-4">
 						<img src="" alt="" />
-						<span>ItsDavidev</span>
+						<span class="post_data--user"> ${this.userName} </span>
 					</div>
-					<button></button>
+					<button-add-favorites></button-add-favorites>
 				</div>
 			</article>
 		`;

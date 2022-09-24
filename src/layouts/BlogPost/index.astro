@@ -1,0 +1,32 @@
+---
+import '../../styles/post.css';
+import BaseHead from '../../components/BaseHead.astro';
+import { TitlePost } from './compoenents/TitlePost';
+export interface Props {
+	content: {
+		title: string;
+		description: string;
+		pubDate?: string;
+		updatedDate?: string;
+		heroImage?: string;
+	};
+}
+
+const {
+	content: { title, description },
+} = Astro.props;
+---
+
+<html lang='en'>
+	<head>
+		<BaseHead title={title} description={description} />
+	</head>
+	<body>
+		<main class='main-post'>
+			<article class='main-post__article'>
+				<TitlePost client:visible title={title} />
+				<slot />
+			</article>
+		</main>
+	</body>
+</html>

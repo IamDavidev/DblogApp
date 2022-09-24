@@ -1,0 +1,16 @@
+.main-post {
+	max-width: 60%;
+	margin: 0rem auto;
+}
+pre {
+	padding: 2rem 1.5rem;
+	background-color: var(--gray--color);
+	border-radius: 1rem;
+}
+pre > code {
+	width: auto;
+	color: var(--primary--color);
+	font-size: 1rem;
+	font-family: 'Fira-code-bold';
+	font-weight: bold;
+}

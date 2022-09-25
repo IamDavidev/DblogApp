@@ -20,7 +20,6 @@ const tagName = 'post-list';
 @customElement(tagName)
 export class PostList extends LitElement {
 	constructor(post: propsPostList) {
-		console.log(post);
 		super();
 	}
 

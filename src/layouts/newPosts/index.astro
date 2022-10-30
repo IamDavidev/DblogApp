@@ -2,6 +2,7 @@
 import { PostRecent } from './components/PostRecent';
 
 const newPosts = await Astro.glob('../../pages/posts/*.{md,mdx}');
+---
 
 <section class='container-new-posts'>
 	<h2 class='container-new-posts__title'>News</h2>
@@ -33,13 +34,14 @@ const newPosts = await Astro.glob('../../pages/posts/*.{md,mdx}');
 	}
 
 	.container-new-posts__title {
+		display: flex;
 		font-family: 'Raleway-bold';
 		font-weight: bold;
 		font-size: 96px;
 		color: var(--primary--color);
 	}
-	@media screen and (min-width: 1024px) {
-		.container-new-posts__posts {
+	@media (min-width: 1024px) {
+		.container-new-post__posts {
 			display: flex;
 			flex-direction: row;
 			justify-content: space-between;

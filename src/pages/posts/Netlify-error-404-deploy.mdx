@@ -40,6 +40,8 @@ export class PostLayout extends LitElement {
 
 </CodeLayout>
 
+<CodeLayout>
+
 ```prisma
 model User {
   id        Int      @id @default(autoincrement())
@@ -50,25 +52,37 @@ model User {
 }
 ```
 
+</CodeLayout>
+
 ## curl
 
+<CodeLayout>
+
 ```bash
-bash -c "$(curl -fsSL https://raw.github.com/ohmybash/oh-my-bash/master/tools/install.sh)"
+bash -c "$(curl -fsSLhttps://raw.github.com/ohmybash/oh-my-bash/master/tools/install.sh)" \
 ```
 
+</CodeLayout>
+
+<CodeLayout>
 ## wget
 
 ```bash
 bash -c "$(wget https://raw.github.com/ohmybash/oh-my-bash/master/tools/install.sh -O -)"
 ```
 
+</CodeLayout>
+
 - cuando se termine de instalar el paquete lo que tenemos que hacer es ejecutar el siguiente comando con el que entraremos a las configuraciones de bash:
 
 ## cambiar el theme
 
+<CodeLayout>
 ```bash
 nano ~/.bashrc
+
 ```
+</CodeLayout>
 
 - una vez dentro de la configuracion buscaremos el siguiente comando: **OH_THEME="font"**
 
@@ -77,3 +91,4 @@ nano ~/.bashrc
 daremos **ctrl k** & **y** para guardar los cambios
 
 </PostLayout>
+```

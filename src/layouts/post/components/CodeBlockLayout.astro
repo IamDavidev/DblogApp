@@ -1,9 +1,41 @@
 ---
 ---
 
-<div>
-	<header>
-		<h1>code block</h1>
+<div class='pre-custom'>
+	<header class='header-custom'>
+		<div></div>
+		<div></div>
+		<div></div>
 	</header>
 	<slot />
 </div>
+<style>
+	.pre-custom {
+		margin: 1rem 0;
+	}
+	.header-custom {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: start;
+		background: #0d1117;
+		height: 1rem;
+		border-radius: 1rem 1rem 0 0;
+		padding: 0.5rem 1rem;
+		gap: 1rem;
+	}
+	.header-custom div {
+		width: 0.8rem;
+		height: 0.8rem;
+		border-radius: 1rem;
+	}
+	.header-custom div:nth-child(1) {
+		background: #e36209;
+	}
+	.header-custom div:nth-child(2) {
+		background: #d73a49;
+	}
+	.header-custom div:nth-child(3) {
+		background: #6f42c1;
+	}
+</style>

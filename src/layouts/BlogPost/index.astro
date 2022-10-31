@@ -25,10 +25,10 @@ const {
 		<main class='main-post'>
 			<article class='main-post__article'>
 				<header>
+					<!-- <div class='container-image-post'>
+						<img src={image} alt='title' class='image-post' />
+					</div> -->
 					<TitlePost client:visible title={title} />
-					<!-- <div class='container-image-post'> -->
-					<!-- <img src={image} alt='title' class='image-post' /> -->
-					<!-- </div> -->
 				</header>
 				<slot />
 			</article>
@@ -42,7 +42,7 @@ const {
 				align-items: center;
 			}
 			.image-post {
-				width: 80%;
+				width: 100%;
 				margin: 0 auto;
 				height: 100%;
 				object-fit: cover;

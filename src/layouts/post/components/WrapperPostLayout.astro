@@ -7,7 +7,16 @@ const { title } = Astro.props;
 </article>
 
 <style>
+	.post-container {
+		display: inline;
+	}
+	.post-container > p {
+		color: red;
+	}
 	.post-container > pre {
 		margin: 0;
+	}
+	.post-container > p > strong {
+		color: var(--primary-colo-r);
 	}
 </style>

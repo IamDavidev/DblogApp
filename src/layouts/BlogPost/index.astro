@@ -1,0 +1,53 @@
+---
+import '../../styles/post.css';
+import BaseHead from '../../components/BaseHead.astro';
+import { TitlePost } from './compoenents/TitlePost';
+export interface Props {
+	content: {
+		title: string;
+		description: string;
+		pubDate?: string;
+		updatedDate?: string;
+		image?: string;
+	};
+}
+
+const {
+	content: { title, description, image },
+} = Astro.props;
+---
+
+<html lang='en'>
+	<head>
+		<BaseHead title={title} description={description} />
+	</head>
+	<body>
+		<main class='main-post'>
+			<article class='main-post__article'>
+				<header>
+					<!-- <div class='container-image-post'>
+						<img src={image} alt='title' class='image-post' />
+					</div> -->
+					<TitlePost client:visible title={title} />
+				</header>
+				<slot />
+			</article>
+		</main>
+		<style>
+			.container-image-post {
+				width: 100%;
+				height: 100%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			.image-post {
+				width: 100%;
+				margin: 0 auto;
+				height: 100%;
+				object-fit: cover;
+				border-radius: 1rem;
+			}
+		</style>
+	</body>
+</html>

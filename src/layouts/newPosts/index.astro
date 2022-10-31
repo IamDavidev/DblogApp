@@ -1,0 +1,51 @@
+---
+import { PostRecent } from './components/PostRecent';
+
+const newPosts = await Astro.glob('../../pages/posts/*.{md,mdx}');
+---
+
+<section class='container-new-posts'>
+	<h2 class='container-new-posts__title'>News</h2>
+	<div class='container-new-post__posts'>
+		{
+			newPosts.map(post => {
+				if (!post.frontmatter.new) return;
+				const dataPost = post.frontmatter;
+				return (
+					<PostRecent
+						url={post.url}
+						tags={dataPost.tags}
+						title={dataPost.title}
+						description={dataPost.description}
+						imageUser={dataPost.image}
+						userName={dataPost.userName}
+						updatedPost={dataPost.update}
+						client:visible
+					/>
+				);
+			})
+		}
+	</div>
+</section>
+
+<style>
+	.container-new-posts {
+		margin: 4rem 0;
+	}
+
+	.container-new-posts__title {
+		display: flex;
+		font-family: 'Raleway-bold';
+		font-weight: bold;
+		font-size: 96px;
+		color: var(--primary--color);
+	}
+	@media (min-width: 1024px) {
+		.container-new-post__posts {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+		}
+	}
+</style>

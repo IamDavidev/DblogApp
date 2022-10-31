@@ -1,15 +1,7 @@
-@font-face {
-	font-family: 'Raleway-medium';
-	src: url('../assets/fonts/Raleway-Medium.ttf');
-}
-
-@font-face {
-	font-family: 'Raleway-bold';
-	src: url('../assets/fonts/Raleway-Bold.ttf');
-}
+@import './fonts.css';
 
 :root {
-	--bg--color: #171717;
+	--bg--color: #121212;
 	--white--color: #fff;
 	--red--color: #da0037;
 	--gray--color: #444444;
@@ -29,6 +21,6 @@ body {
 
 @media screen and (min-width: 768px) {
 	body {
-		padding: 4rem;
+		padding: 2rem 4rem;
 	}
 }

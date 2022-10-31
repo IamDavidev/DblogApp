@@ -1,0 +1,99 @@
+---
+layout: layouts/post.njk
+tags:
+  - web
+  - posts
+  - latest
+  - itsdavidev
+title: Instalación de zsh y oh-my-zsh
+userName: David Lezama
+imgAuthor: https://avatars.githubusercontent.com/u/85713808?v=4'
+description: como puedo instalar oh my bash? oh my bash
+published: '2022/04/19'
+image: /public/images-post/netlify-eror-404-deploy.png
+urlAuthor: https://github.com/itsDavidev
+---
+
+## instalacion zsh
+
+ejcutaremos lo siguiente comandos
+
+```bash
+sudo apt update
+```
+
+```bash
+sudo apt install zsh
+```
+
+si no sale ningun error pondremos en la termial _zsh_
+
+si esta bien instalada deberia de aprecer el nombre del equipo
+
+## ocupar zsh por defecto
+
+ejecutaremos el siguiente comando
+
+`chsh usuariondelequipo -s /bin/zsh`
+
+y reiniciaremos el equipo para poder ver lo cambios reflejados
+(en caso de linux basta con cerrar la cerrar la sesion)
+
+## instalacion de oh-my-zsh
+
+### prerequisitos
+
+- curl (curl --version )
+
+```
+sudo apt install git curl -y
+```
+
+- zsh
+
+para poder instalar 0h-my-zsh, usamos el siguiente comando para descargar el script
+
+```
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+y con eso ya tendremo corriendo el framework oh-my-zsh en la terminal
+
+## recomendaciones de plugins
+
+zsh-syntax-highlighting ( para mostar en color si el comando esta disponible)
+zsh-autosuggestions (a medida que escribimos un comando, nos sugiere y recuerda comandos escritos anter )
+
+### intslacion de plugins de zsh
+
+para intalar los puglins sugeridos se nesesita ejecutar los siguientes comando
+
+```
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+```
+
+```
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+```
+
+```
+git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
+```
+
+entraremos a la configuracion de zsh
+
+- vim ~/.zshrc (se nesesita tener vim instalado ~> linux(sudo apt insstall vim))
+- nano ~/.zshrc (se recomienda en windows)
+
+y en plugins pasaremos de esto
+
+```
+plugins(git)
+```
+
+a esto
+
+```
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-completions)
+autoload -U compinit && compinit
+```

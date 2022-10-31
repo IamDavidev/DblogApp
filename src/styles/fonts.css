@@ -1,0 +1,35 @@
+@font-face {
+	font-family: 'Raleway-medium';
+	font-weight: normal;
+	src: url('../assets/fonts/Raleway-Medium.ttf');
+}
+
+@font-face {
+	font-family: 'Raleway-bold';
+	font-weight: bold;
+	src: url('../assets/fonts/Raleway-Bold.ttf');
+}
+
+@font-face {
+	font-family: 'Raleway-extrabold';
+	font-weight: bolder;
+	src: url('../assets/fonts/Raleway-Bold.ttf');
+}
+
+@font-face {
+	font-family: 'Roboto-medium';
+	font-weight: normal;
+	src: url('../assets/fonts/Roboto-Medium.ttf');
+}
+
+@font-face {
+	font-family: 'Roboto-bold';
+	font-weight: bold;
+	src: url('../assets/fonts/Roboto-Bold.ttf');
+}
+
+@font-face {
+	font-family: 'Fira-code-bold';
+	font-family: bold;
+	src: url('../assets/fonts/FiraCode-bold.ttf');
+}

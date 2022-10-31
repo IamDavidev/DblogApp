@@ -14,5 +14,10 @@ export default defineConfig({
     ssr: {
       "external": "lit/decorators.js"
     }
-  }
+  },
+  markdown: {
+    shikiConfig: {
+      theme: 'github-dark',
+    },
+  },
 });

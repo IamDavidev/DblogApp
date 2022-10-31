@@ -2,6 +2,10 @@ import { css, html, LitElement, TemplateResult } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
 const tagName: string = 'title-blog';
+/**
+ *
+ * comment
+ */
 
 @customElement(tagName)
 export class TitleBlog extends LitElement {
@@ -20,6 +24,7 @@ export class TitleBlog extends LitElement {
 			padding: 2rem 0;
 			text-transform: uppercase;
 			position: relative;
+			/* text-shadow: 0 0 5px var(--white--color); */
 		}
 
 		.container__title::after {
@@ -51,5 +56,3 @@ export class TitleBlog extends LitElement {
 		`;
 	}
 }
-
-export {};

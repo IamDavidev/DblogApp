@@ -1,0 +1,39 @@
+---
+import { PostList } from './components/postLis';
+
+const posts = await Astro.glob('../../pages/posts/*.{md,mdx}');
+---
+
+<section>
+	<h2 class='container-all-posts__title'>All Posts</h2>
+	<div class=''>render filters</div>
+	<>
+		{
+			posts.map(post => {
+				const data = post.frontmatter;
+				return (
+					<PostList
+						client:visible
+						imageProfile=''
+						url={post.url}
+						title={data.title}
+						description={data.description}
+						image={data.image}
+						userName={data.userName}
+						updatedPost={data.update}
+					/>
+				);
+			})
+		}
+	</>
+</section>
+
+<style>
+	.container-all-posts__title {
+		display: flex;
+		font-family: 'Raleway-bold';
+		font-weight: bold;
+		font-size: 96px;
+		color: var(--primary--color);
+	}
+</style>

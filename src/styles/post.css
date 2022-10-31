@@ -1,0 +1,74 @@
+.main-post {
+	max-width: 60%;
+	margin: 0rem auto;
+}
+.post-container > pre {
+	padding: 2rem 1.5rem;
+	margin: 0;
+	background-color: var(--gray--color);
+	border-radius: 1rem;
+}
+.post-container > .pre-custom > pre {
+	padding: 2rem 1.5rem;
+	margin: 0;
+	background-color: var(--gray--color);
+	border-radius: 0 0 1rem 1rem;
+}
+.post-container > pre > code {
+	width: auto;
+	color: var(--primary--color);
+	font-size: 1rem;
+	font-family: 'Fira-code-bold';
+	font-weight: bold;
+}
+
+.post-container > p > strong {
+	color: var(--primary--color);
+}
+
+.post-container > ul > li > p > strong {
+	color: var(--primary--color);
+}
+
+.post-container > ol > li > p > strong {
+	color: var(--primary--color);
+}
+.post-container > p > a {
+	text-decoration: none;
+	color: var(--effect--color);
+}
+.post-container > ul > li > p > a {
+	text-decoration: none;
+	color: var(--effect--color);
+}
+
+pre::-webkit-scrollbar {
+	-webkit-appearance: none;
+	background-color: var(--gray--color);
+	border-radius: 1rem;
+}
+
+pre::-webkit-scrollbar:vertical {
+	width: 10px;
+}
+pre::-webkit-scrollbar:horizontal {
+	height: 2px;
+}
+
+pre::-webkit-scrollbar-button:increment,
+pre::-webkit-scrollbar-button {
+	display: none;
+}
+
+pre::-webkit-scrollbar:horizontal {
+	height: 10px;
+}
+
+pre::-webkit-scrollbar-thumb {
+	background-color: var(--primary--color);
+	border-radius: 20px;
+}
+
+pre::-webkit-scrollbar-track {
+	border-radius: 10px;
+}

@@ -11,28 +11,62 @@ tags:
 update: '11 september 2022'
 ---
 
-# {frontmatter.title}
+import PostLayout from '../../layouts/post/components/WrapperPostLayout.astro';
+import CodeLayout from '../../layouts/post/components/CodeBlockLayout.astro';
 
-this example
-Ocuparemos el siguiente comando para instalar oh my bash en nuestro sistema:
+<PostLayout title='jfl;ads' imageSrc="/public/images-post/netlify-eror-404-deploy.png">
+ this example Ocuparemos el siguiente comando para instalar oh my bash en
+ nuestro sistema:
+<CodeLayout>
 
-### `curl`
+```js
+import { html, LitElement, TemplateResult } from 'lit';
+import { customElement } from 'lit/decorators.js';
 
+export const tagName = 'post-layout';
+
+@customElement(tagName)
+export class PostLayout extends LitElement {
+ render(): TemplateResult<1> {
+  return html`
+   <article>
+    post layout
+    <slot />
+   </article>
+  `;
+ }
+}
 ```
+
+</CodeLayout>
+
+```prisma
+model User {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  email     String   @unique
+  name      String?
+  posts     Post[]
+}
+```
+
+## curl
+
+```bash
 bash -c "$(curl -fsSL https://raw.github.com/ohmybash/oh-my-bash/master/tools/install.sh)"
 ```
 
-#### `wget`
+## wget
 
-```
+```bash
 bash -c "$(wget https://raw.github.com/ohmybash/oh-my-bash/master/tools/install.sh -O -)"
 ```
 
 - cuando se termine de instalar el paquete lo que tenemos que hacer es ejecutar el siguiente comando con el que entraremos a las configuraciones de bash:
 
-# `cambiar el theme`
+## cambiar el theme
 
-```
+```bash
 nano ~/.bashrc
 ```
 
@@ -41,3 +75,5 @@ nano ~/.bashrc
 - podemos volver a cambiar el theme entrando nuevamente en la configuracion : aqui las opciones [aqui](https://github.com/ohmybash/oh-my-bash/wiki/Themes)
 
 daremos **ctrl k** & **y** para guardar los cambios
+
+</PostLayout>

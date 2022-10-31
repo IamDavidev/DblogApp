@@ -8,12 +8,12 @@ export interface Props {
 		description: string;
 		pubDate?: string;
 		updatedDate?: string;
-		heroImage?: string;
+		image?: string;
 	};
 }
 
 const {
-	content: { title, description },
+	content: { title, description, image },
 } = Astro.props;
 ---
 
@@ -24,9 +24,30 @@ const {
 	<body>
 		<main class='main-post'>
 			<article class='main-post__article'>
-				<TitlePost client:visible title={title} />
+				<header>
+					<TitlePost client:visible title={title} />
+					<!-- <div class='container-image-post'> -->
+					<!-- <img src={image} alt='title' class='image-post' /> -->
+					<!-- </div> -->
+				</header>
 				<slot />
 			</article>
 		</main>
+		<style>
+			.container-image-post {
+				width: 100%;
+				height: 100%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			.image-post {
+				width: 80%;
+				margin: 0 auto;
+				height: 100%;
+				object-fit: cover;
+				border-radius: 1rem;
+			}
+		</style>
 	</body>
 </html>

@@ -1,0 +1,13 @@
+---
+const { title } = Astro.props;
+---
+
+<article class='post-container'>
+	<slot />
+</article>
+
+<style>
+	.post-container > pre {
+		margin: 0;
+	}
+</style>

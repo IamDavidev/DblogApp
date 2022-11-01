@@ -1,7 +1,9 @@
 ---
 import '../../styles/post.css';
 import BaseHead from '../../components/BaseHead.astro';
+import Navbar from '@components/Navbar.astro';
 import { TitlePost } from './compoenents/TitlePost';
+
 export interface Props {
 	content: {
 		title: string;
@@ -22,6 +24,7 @@ const {
 		<BaseHead title={title} description={description} />
 	</head>
 	<body>
+		<Navbar />
 		<main class='main-post'>
 			<article class='main-post__article'>
 				<header>

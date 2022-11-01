@@ -13,12 +13,17 @@
 	margin: 0;
 	background-color: var(--gray--color);
 	border-radius: 0 0 1rem 1rem;
+	font-family: 'Lilex';
+	font-weight: bold;
+}
+.post-container > .pre-custom > pre > code {
+	font-family: 'Lilex';
 }
 .post-container > pre > code {
 	width: auto;
 	color: var(--primary--color);
 	font-size: 1rem;
-	font-family: 'Fira-code-bold';
+	font-family: 'Lilex';
 	font-weight: bold;
 }
 

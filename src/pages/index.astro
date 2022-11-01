@@ -5,6 +5,7 @@ import { TitleBlog } from '@components/Title';
 
 import NewPosts from '@layouts/newPosts/index.astro';
 import AllPosts from '@layouts/allPosts/index.astro';
+import Navbar from '@components/Navbar.astro';
 
 const title = 'Dblog';
 const description =
@@ -17,6 +18,7 @@ const description =
 		<BaseHead title={title} description={description} />
 	</head>
 	<body>
+		<Navbar />
 		<TitleBlog client:visible />
 		<NewPosts />
 		<AllPosts />

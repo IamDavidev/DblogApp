@@ -73,6 +73,12 @@ export class PostList extends LitElement {
 			align-items: flex-end;
 			padding: 1rem 0;
 		}
+		.post-data > .user-post {
+			display: flex;
+			align-items: center;
+			gap: 1rem;
+			color: var(--red--color);
+		}
 
 		.post-info__header--update {
 			display: flex;
@@ -82,8 +88,12 @@ export class PostList extends LitElement {
 			gap: 0.5rem;
 		}
 		.post_data--user {
-			color: var(--effect--color);
 			font-weight: bold;
+		}
+		.post-description {
+			color: var(--gray--color);
+			font-weight: bold;
+			margin: 0;
 		}
 	`;
 
@@ -106,12 +116,14 @@ export class PostList extends LitElement {
 								>
 							</div>
 						</header>
-						<p>${this.description}</p>
+						<p class="post-description">${this.description}</p>
 					</div>
 				</div>
 				<div class="post-data">
-					<div class="post-data mb-4">
-						<img src="" alt="" />
+					<div class="user-post">
+						<a href="https://twitter.com/itsDavidev" target="_blank">
+							<img src="/twitter.svg" alt="" />
+						</a>
 						<span class="post_data--user"> ${this.userName} </span>
 					</div>
 					<button-add-favorites></button-add-favorites>

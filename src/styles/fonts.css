@@ -33,3 +33,19 @@
 	font-family: bold;
 	src: url('../assets/fonts/FiraCode-bold.ttf');
 }
+@font-face {
+	font-family: 'Lilex';
+	font-weight: regular;
+	src: url('../assets/fonts/Lilex-Regular.ttf');
+}
+@font-face {
+	font-family: 'Lilex';
+	font-weight: bold;
+	src: url('../assets/fonts/Lilex-Bold.ttf');
+}
+
+@font-face {
+	font-family: 'Lilex';
+	font-weight: italic;
+	src: url('../assets/fonts/Lilex-Italic.ttf');
+}

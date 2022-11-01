@@ -1,11 +1,17 @@
 ---
+const { lang } = Astro.props;
 ---
 
 <div class='pre-custom'>
 	<header class='header-custom'>
-		<div></div>
-		<div></div>
-		<div></div>
+		<div class='points'>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+		<div class='lang'>
+			{lang}
+		</div>
 	</header>
 	<slot />
 </div>
@@ -17,25 +23,37 @@
 		display: flex;
 		flex-direction: row;
 		align-items: center;
-		justify-content: start;
+		justify-content: space-between;
 		background: #0d1117;
 		height: 1rem;
 		border-radius: 1rem 1rem 0 0;
 		padding: 0.5rem 1rem;
 		gap: 1rem;
 	}
-	.header-custom div {
+	.points {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: start;
+		gap: 0.5rem;
+	}
+	.header-custom > .points > div {
 		width: 0.8rem;
 		height: 0.8rem;
 		border-radius: 1rem;
 	}
-	.header-custom div:nth-child(1) {
+	.header-custom > .points div:nth-child(1) {
 		background: #e36209;
 	}
-	.header-custom div:nth-child(2) {
+	.header-custom > .points > div:nth-child(2) {
 		background: #d73a49;
 	}
-	.header-custom div:nth-child(3) {
+	.header-custom > .points > div:nth-child(3) {
 		background: #6f42c1;
+	}
+	.lang {
+		color: #da0037;
+		font-size: 1rem;
+		font-weight: bold;
 	}
 </style>

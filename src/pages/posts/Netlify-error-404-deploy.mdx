@@ -17,7 +17,8 @@ import CodeLayout from '../../layouts/post/components/CodeBlockLayout.astro';
 <PostLayout title='jfl;ads' imageSrc="/public/images-post/netlify-eror-404-deploy.png">
  this example Ocuparemos el siguiente comando para instalar oh my bash en
  nuestro sistema:
-<CodeLayout>
+
+<CodeLayout lang="TypeScript">
 
 ```js
 import { html, LitElement, TemplateResult } from 'lit';
@@ -40,7 +41,7 @@ export class PostLayout extends LitElement {
 
 </CodeLayout>
 
-<CodeLayout>
+<CodeLayout lang="prisma">
 
 ```prisma
 model User {
@@ -56,7 +57,7 @@ model User {
 
 ## curl
 
-<CodeLayout>
+<CodeLayout lang="bash">
 
 ```bash
 bash -c "$(curl -fsSLhttps://raw.github.com/ohmybash/oh-my-bash/master/tools/install.sh)" \
@@ -64,8 +65,9 @@ bash -c "$(curl -fsSLhttps://raw.github.com/ohmybash/oh-my-bash/master/tools/ins
 
 </CodeLayout>
 
-<CodeLayout>
 ## wget
+
+<CodeLayout lang="bash">
 
 ```bash
 bash -c "$(wget https://raw.github.com/ohmybash/oh-my-bash/master/tools/install.sh -O -)"
@@ -77,11 +79,13 @@ bash -c "$(wget https://raw.github.com/ohmybash/oh-my-bash/master/tools/install.
 
 ## cambiar el theme
 
-<CodeLayout>
+<CodeLayout lang="bash">
+
 ```bash
 nano ~/.bashrc
 
 ```
+
 </CodeLayout>
 
 - una vez dentro de la configuracion buscaremos el siguiente comando: **OH_THEME="font"**

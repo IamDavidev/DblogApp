@@ -1,5 +1,6 @@
 import { css, html, LitElement, TemplateResult } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
+import Elipse from '../../../assets/images/icons/elipse.svg';
 
 import SavedIcon from '~/assets/images/icons/saved.svg';
 
@@ -83,6 +84,21 @@ export class PostRecent extends LitElement {
 			color: var(--gray--color);
 			font-size: 18px;
 		}
+		.new-post-footer {
+			display: flex;
+			gap: 2rem;
+			align-items: center;
+		}
+		.new-post-footer > .user--footer {
+			display: flex;
+			align-items: center;
+			gap: 1rem;
+		}
+		.new-post-footer > .last-read--footer {
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
+		}
 
 		@media screen and (min-width: 1025px) {
 			.new-post {
@@ -97,6 +113,7 @@ export class PostRecent extends LitElement {
 				width: 100%;
 				object-fit: cover;
 				max-width: 316px;
+				min-height: 250px;
 				border-radius: 1rem;
 			}
 		}
@@ -143,7 +160,18 @@ export class PostRecent extends LitElement {
 						</p>
 					</div>
 				</div>
-				<footer class="new-post-footer"></footer>
+				<footer class="new-post-footer">
+					<div class="user--footer">
+						<a href="https://github.com/itsDavidev" target="_blank">
+							<img src="/github.svg" alt="github" />
+						</a>
+						<span> ${this.userName} </span>
+					</div>
+					<div class="last-read--footer">
+						<img src="${Elipse}" alt="icon-update" />
+						<span class=""> 8 min read </span>
+					</div>
+				</footer>
 			</article>
 		`;
 	}

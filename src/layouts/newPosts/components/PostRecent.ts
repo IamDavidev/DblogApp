@@ -64,6 +64,7 @@ export class PostRecent extends LitElement {
 			);
 			margin-bottom: 16px;
 			transition: all 10s linear;
+			text-decoration: none;
 		}
 
 		.container__content--title {
@@ -92,6 +93,7 @@ export class PostRecent extends LitElement {
 		.new-post-footer > .user--footer {
 			display: flex;
 			align-items: center;
+			color: var(--red--color);
 			gap: 1rem;
 		}
 		.new-post-footer > .last-read--footer {
@@ -142,11 +144,11 @@ export class PostRecent extends LitElement {
 						</div>
 					</div>
 					<div class="container__tags">
-						${this.tags.map(tag => {
+						${this.tags.slice(0, 3).map(tag => {
 							return html`
-								<div class="container__tags--tag">
+								<a class="container__tags--tag" href="/posts/${tag}">
 									<span> ${tag} </span>
-								</div>
+								</a>
 							`;
 						})}
 					</div>

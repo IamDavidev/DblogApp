@@ -121,8 +121,8 @@ export class PostList extends LitElement {
 				</div>
 				<div class="post-data">
 					<div class="user-post">
-						<a href="https://twitter.com/itsDavidev" target="_blank">
-							<img src="/twitter.svg" alt="" />
+						<a href="https://github.com/iamdavidev" target="_blank">
+							<img src="/github.svg" alt="" />
 						</a>
 						<span class="post_data--user"> ${this.userName} </span>
 					</div>

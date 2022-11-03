@@ -2,7 +2,8 @@
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
     "types": [
-      "astro/'client"
+      "astro/'client",
+      "@astro/image/client"
     ],
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,

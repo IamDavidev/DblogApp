@@ -1,0 +1,75 @@
+---
+import BaseHead from '@components/BaseHead.astro';
+import { PostList } from '@components/postLis';
+import tags from '~/constants/tags.const';
+
+export async function getStaticPaths(props: any): Promise<any> {
+	const params = tags.map(tag => ({ params: { tag } }));
+	return [
+		...params,
+		{
+			params: {
+				tag: 'post',
+			},
+		},
+	];
+}
+
+const { tag } = Astro.params;
+const postsTag: Array<any> = [];
+
+const allPosts = await Astro.glob('../post/*.{md,mdx}');
+
+allPosts.forEach(post => {
+	const data = post.frontmatter;
+	if (data.tags.includes(tag)) {
+		postsTag.push(post);
+		return;
+	}
+});
+
+const title = `Posts ${tag} | Dblog`;
+const description = 'This is a description';
+---
+
+<!DOCTYPE html>
+<html lang='es'>
+	<head>
+		<BaseHead title={title} description={description} />
+	</head>
+
+	<body>
+		<h2 class='container-tag__title tag-contain' id='tag_title' data-tag={tag}>
+			#{tag && tag}
+		</h2>
+		<div>
+			{
+				postsTag.map(post => {
+					const data = post.frontmatter;
+					return (
+						<PostList
+							client:visible
+							imageProfile=''
+							url={post.url}
+							title={data.title}
+							description={data.description}
+							image={data.image}
+							userName={data.userName}
+							updatedPost={data.update}
+						/>
+					);
+				})
+			}
+		</div>
+		<style>
+			.container-tag__title {
+				display: flex;
+				font-family: 'Raleway-bold';
+				font-weight: bold;
+				font-size: 132px;
+				color: var(--primary--color);
+				margin: 2rem 0;
+			}
+		</style>
+	</body>
+</html>

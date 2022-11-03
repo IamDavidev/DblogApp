@@ -25,7 +25,7 @@ const { lang } = Astro.props;
 		align-items: center;
 		justify-content: space-between;
 		background: #0d1117;
-		height: 1rem;
+		height: 2rem;
 		border-radius: 1rem 1rem 0 0;
 		padding: 0.5rem 1rem;
 		gap: 1rem;
@@ -52,8 +52,12 @@ const { lang } = Astro.props;
 		background: #6f42c1;
 	}
 	.lang {
-		color: #da0037;
+		color: var(--red--color);
 		font-size: 1rem;
+		opacity: 0.75;
 		font-weight: bold;
+		border: 1px solid var(--red--color);
+		padding: 0.3rem 0.5rem;
+		border-radius: 0.3rem;
 	}
 </style>

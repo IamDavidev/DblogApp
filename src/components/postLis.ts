@@ -3,7 +3,7 @@ import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import '~/components/ButtonAddFavorites';
 
-import Elipse from '../../../assets/images/icons/elipse.svg';
+import Elipse from '../assets/images/icons/elipse.svg';
 
 interface propsPostList {
 	title: string;
@@ -64,6 +64,13 @@ export class PostList extends LitElement {
 			color: var(--primary--color);
 			font-family: 'Raleway-bold';
 			font-size: 32px;
+			text-decoration: none;
+		}
+		/*  hover apply degraded */
+		.post-info__header--title:hover {
+			color: var(--white--color);
+			text-shadow: 0 0 2px var(--effect--color);
+			transition: all 1s;
 		}
 
 		.post-data {
@@ -77,7 +84,7 @@ export class PostList extends LitElement {
 			display: flex;
 			align-items: center;
 			gap: 1rem;
-			color: var(--red--color);
+			color: var(--effect--color);
 		}
 
 		.post-info__header--update {
@@ -108,7 +115,9 @@ export class PostList extends LitElement {
 					/>
 					<div class="post-info__header">
 						<header>
-							<h2 class="post-info__header--title">${this.title}</h2>
+							<a href="${this.url}" class="post-info__header--title"
+								>${this.title}</a
+							>
 							<div class="post-info__header--update">
 								<img src="${Elipse}" alt="icon-update" />
 								<span class="post-info__header--update"
@@ -121,8 +130,8 @@ export class PostList extends LitElement {
 				</div>
 				<div class="post-data">
 					<div class="user-post">
-						<a href="https://twitter.com/itsDavidev" target="_blank">
-							<img src="/twitter.svg" alt="" />
+						<a href="https://github.com/iamdavidev" target="_blank">
+							<img src="/github.svg" alt="" />
 						</a>
 						<span class="post_data--user"> ${this.userName} </span>
 					</div>

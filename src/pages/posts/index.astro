@@ -1,0 +1,12 @@
+---
+import PageLayout from '@components/PageLayout.astro';
+
+import AllPosts from '@layouts/allPosts/index.astro';
+import { Langs } from '~/interfaces/langs.enum';
+
+const title = 'Posts | Dblog';
+---
+
+<PageLayout lang={Langs.ES} description='all posts' title={title}>
+	<AllPosts />
+</PageLayout>

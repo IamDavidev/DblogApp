@@ -11,12 +11,18 @@ export interface Props {
 		pubDate?: string;
 		updatedDate?: string;
 		image?: string;
+		tags: any[];
+		update: string;
 	};
 }
 
 const {
-	content: { title, description, image },
+	content: { title, description, image, tags, pubDate, update },
 } = Astro.props;
+
+console.info('🚀 ~>  file: index.astro ~>  line 21 ~>  update', update);
+console.info('🚀 ~>  file: index.astro ~>  line 20 ~>  pubDate', pubDate);
+console.info('🚀 ~>  file: index.astro ~>  line 19 ~>  tags', tags);
 ---
 
 <html lang='en'>
@@ -27,22 +33,40 @@ const {
 		<Navbar />
 		<main class='main-post'>
 			<article class='main-post__article'>
-				<header>
+				<header class='main-post___article--header'>
+					<div></div>
+					<TitlePost client:visible title={title} />
 					<!-- <div class='container-image-post'>
 						<img src={image} alt='title' class='image-post' />
 					</div> -->
-					<TitlePost client:visible title={title} />
 				</header>
 				<slot />
 			</article>
 		</main>
 		<style>
+			.main-post___article--header {
+				/* margin: 1.5rem 0px; */
+				margin-bottom: 5rem;
+				position: relative;
+			}
 			.container-image-post {
+				position: absolute;
+				top: -10%;
+				left: 0;
 				width: 100%;
-				height: 100%;
+				height: 120%;
 				display: flex;
 				justify-content: center;
 				align-items: center;
+			}
+			.container-image-post::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(0, 0, 0, 0.5);
 			}
 			.image-post {
 				width: 100%;

@@ -42,7 +42,8 @@ import tags from '~/constants/tags.const';
 	.footer-dblog__tags {
 		display: flex;
 		align-items: center;
-		flex-direction: column;
+		flex-direction: row;
+		justify-content: center-;
 		gap: 2rem;
 	}
 	.tag__link {
@@ -52,5 +53,12 @@ import tags from '~/constants/tags.const';
 		border-radius: 0.5rem;
 		background-color: var(--effect--color);
 		color: var(--bg--color);
+		/* transition: all 0.5s ease-in-out; */
+		transition: all ease-in-out 0.5s;
+		border: 3px solid var(--effect--color);
+	}
+	.tag__link:hover {
+		color: var(--effect--color);
+		background-color: transparent;
 	}
 </style>

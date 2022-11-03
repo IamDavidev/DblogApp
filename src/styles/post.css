@@ -1,6 +1,9 @@
 .main-post {
 	max-width: 60%;
 	margin: 0rem auto;
+	position: relative;
+	z-index: 99;
+	background-color: var(--bg--color);
 }
 .post-container > pre {
 	padding: 2rem 1.5rem;

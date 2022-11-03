@@ -56,7 +56,7 @@ export class PostRecent extends LitElement {
 			color: var(--white--color);
 			padding: 8px 24px;
 			font-family: 'Raleway-bold';
-			border-radius: 16px;
+			border-radius: 16rem;
 			background: linear-gradient(
 				to bottom,
 				rgba(23, 23, 23, 1) 0%,

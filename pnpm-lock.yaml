@@ -6,6 +6,7 @@ specifiers:
   '@astrojs/mdx': 0.11.1
   '@astrojs/rss': 1.0.0
   '@astrojs/sitemap': 1.0.0
+  '@popperjs/core': 2.11.6
   '@types/node': 18.7.18
   '@typescript-eslint/eslint-plugin': 5.36.2
   '@typescript-eslint/parser': 5.36.2
@@ -34,6 +35,7 @@ dependencies:
   '@astrojs/mdx': 0.11.1
   '@astrojs/rss': 1.0.0
   '@astrojs/sitemap': 1.0.0
+  '@popperjs/core': 2.11.6
   '@typescript-eslint/parser': 5.36.2_mhuqwxjuzzohsqdqy5ni56jl3u
   astro: 1.1.5
   eslint-plugin-astro: 0.18.0_eslint@8.0.1
@@ -671,6 +673,10 @@ packages:
 
   /@polka/url/1.0.0-next.21:
     resolution: {integrity: sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==}
+    dev: false
+
+  /@popperjs/core/2.11.6:
+    resolution: {integrity: sha512-50/17A98tWUfQ176raKiOGXuYpLyyVMkxxG6oylzL3BPOlA6ADGdK7EYunSa4I064xerltq9TGXs8HmOk5E+vw==}
     dev: false
 
   /@proload/core/0.3.3:

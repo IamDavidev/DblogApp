@@ -4,13 +4,15 @@
 
 [ ] replace route for ~/ - src @components - comopenents
 
-[ ] create page post
+[x] create page post
 
-[ ] change icon twitter for github with link to github if exist respotory
+[ ] refactor ui page post
 
-[ ] in home only show post with tag of the last post view
+[x] change icon twitter for github with link to github if exist respotory
 
-[ ] add tag to post
+[ ] in home only show post with tag of the last post view ( SSR - Look Solution)
+
+[x] add tag to post
 
 [ ] created new posts
 
@@ -20,6 +22,10 @@
 
 [ ] refactor compoenten postlist
 
-[ ] in PostList change title for `<a></a>` with url of post
+[x] in PostList change title for `<a></a>` with url of post
 
 [ ] \_\_\_ implement post save to watch latter in localStorage
+
+[ ] Create function that return post
+
+[ ] mobile view

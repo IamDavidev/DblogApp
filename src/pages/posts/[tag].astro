@@ -1,6 +1,6 @@
 ---
 import BaseHead from '@components/BaseHead.astro';
-import { PostList } from '@layouts/allPosts/components/postLis';
+import { PostList } from '@components/postLis';
 import tags from '~/constants/tags.const';
 
 export async function getStaticPaths(props: any): Promise<any> {
@@ -37,8 +37,11 @@ const description = 'This is a description';
 	<head>
 		<BaseHead title={title} description={description} />
 	</head>
+
 	<body>
-		<h2 class='container-tag__title'>{tag && tag}</h2>
+		<h2 class='container-tag__title tag-contain' id='tag_title' data-tag={tag}>
+			#{tag && tag}
+		</h2>
 		<div>
 			{
 				postsTag.map(post => {
@@ -63,7 +66,7 @@ const description = 'This is a description';
 				display: flex;
 				font-family: 'Raleway-bold';
 				font-weight: bold;
-				font-size: 128px;
+				font-size: 132px;
 				color: var(--primary--color);
 				margin: 2rem 0;
 			}

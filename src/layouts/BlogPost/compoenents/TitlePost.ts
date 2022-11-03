@@ -23,12 +23,13 @@ export class TitlePost extends LitElement {
 
 	static styles: CSSResultGroup = css`
 		.container__title-post {
-			font-size: 72px;
+			font-size: 96px;
 			font-weight: bold;
 			color: var(--primary--color);
 			margin: 0.5rem 0;
 			padding: 1.5rem 0;
 			position: relative;
+			z-index: 99;
 		}
 		.container__title-post::after {
 			content: '';

@@ -6,13 +6,20 @@ import { TitleBlog } from '@components/Title';
 import NewPosts from '@layouts/newPosts/index.astro';
 import AllPosts from '@layouts/allPosts/index.astro';
 import Navbar from '@components/Navbar.astro';
+import PageLayout from '@components/PageLayout.astro';
+import { Langs } from '~/interfaces/langs.enum';
 
 const title = 'Dblog';
 const description =
 	'Este es un Blog en el cual podras descubrir las novedades del mundo y del entorno web. Tambien podras encotrar tutoriales de : React - Astro - Lit - Go - Phyton - TS - Arquitectura - conceptos web - programacion basica - POO - test ';
 ---
 
-<!DOCTYPE html>
+<PageLayout lang={Langs.ES} title={title} description=''>
+	<TitleBlog client:visible />
+	<NewPosts />
+	<AllPosts />
+</PageLayout>
+<!-- <!DOCTYPE html>
 <html lang='es'>
 	<head>
 		<BaseHead title={title} description={description} />
@@ -23,4 +30,4 @@ const description =
 		<NewPosts />
 		<AllPosts />
 	</body>
-</html>
+</html> -->

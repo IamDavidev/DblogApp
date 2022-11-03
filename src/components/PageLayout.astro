@@ -1,0 +1,24 @@
+---
+import type { Langs } from '~/interfaces/langs.enum';
+import BaseHead from './BaseHead.astro';
+import Navbar from './Navbar.astro';
+
+interface Props {
+	title: string;
+	description: string;
+	lang: Langs;
+}
+
+const { description, title, lang } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang={lang}>
+	<head>
+		<BaseHead title={title} description={description} />
+	</head>
+	<body>
+		<Navbar />
+		<slot />
+	</body>
+</html>

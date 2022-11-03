@@ -1,12 +1,11 @@
 ---
-import { PostList } from './components/postLis';
+import { PostList } from '@components/postLis';
 
 const posts = await Astro.glob('../../pages/post/*.{md,mdx}');
 ---
 
 <section>
-	<h2 class='container-all-posts__title'>All Posts</h2>
-	<!-- <div class=''>render filters</div> -->
+	<h2 class='container-all-posts__title'>Posts</h2>
 	<>
 		{
 			posts.map(post => {

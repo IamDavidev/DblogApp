@@ -78,6 +78,8 @@ export class PostRecent extends LitElement {
 
 		.container__content--title:hover {
 			color: var(--white--color);
+			text-shadow: 0px 0px 2px var(--primary--color);
+			transition: all 0.4s linear;
 		}
 
 		.container__content--description {
@@ -93,8 +95,9 @@ export class PostRecent extends LitElement {
 		.new-post-footer > .user--footer {
 			display: flex;
 			align-items: center;
-			color: var(--red--color);
+			color: var(--effect--color);
 			gap: 1rem;
+			font-weight: bold;
 		}
 		.new-post-footer > .last-read--footer {
 			display: flex;

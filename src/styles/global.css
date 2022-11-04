@@ -17,10 +17,87 @@ body {
 	color: var(--white--color);
 	padding: 0;
 	margin: 0;
+	position: relative;
 }
 
 @media screen and (min-width: 768px) {
 	body {
 		padding: 2rem 4rem;
 	}
+}
+
+html {
+	scroll-padding-block-end: 4px;
+}
+html::-webkit-scrollbar {
+	-webkit-appearance: none;
+	color: var(--primary--color);
+	background-color: var(--bg--color);
+}
+
+html::-webkit-scrollbar:vertical {
+	width: 10px;
+}
+
+html::-webkit-scrollbar-button:increment,
+html::-webkit-scrollbar-button {
+	display: none;
+}
+
+html::-webkit-scrollbar:horizontal {
+	height: 10px;
+}
+
+html::-webkit-scrollbar-thumb {
+	background-color: var(--primary--color);
+	border-radius: 4px;
+	padding: 0 1rem;
+	border: 1px solid rgb(0, 0, 0);
+}
+
+html::-webkit-scrollbar-track {
+	border-radius: 10px;
+}
+
+#cursor {
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	top: 50%;
+	left: 50%;
+	border-radius: 5px;
+	background: var(--primary--color);
+	pointer-events: none;
+	mix-blend-mode: difference;
+	transition: transform 0.5s, width 0.5s, height 0.5s, clip-path 0.5s;
+}
+#cursor.scaled {
+	transform: scale(5);
+}
+#cursor.hovered {
+	width: 75px;
+	height: 75px;
+	transform: scale(1.5);
+}
+#cursor.hovered.left-arrow {
+	clip-path: polygon(
+		40% 0%,
+		40% 20%,
+		100% 20%,
+		100% 80%,
+		40% 80%,
+		40% 100%,
+		0% 50%
+	);
+}
+#cursor.hovered.right-arrow {
+	clip-path: polygon(
+		0% 20%,
+		60% 20%,
+		60% 0%,
+		100% 50%,
+		60% 100%,
+		60% 80%,
+		0% 80%
+	);
 }

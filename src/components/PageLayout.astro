@@ -1,6 +1,7 @@
 ---
 import type { Langs } from '~/interfaces/langs.enum';
 import BaseHead from './BaseHead.astro';
+import Footer from './Footer.astro';
 import Navbar from './Navbar.astro';
 
 interface Props {
@@ -20,5 +21,6 @@ const { description, title, lang } = Astro.props;
 	<body>
 		<Navbar />
 		<slot />
+		<Footer />
 	</body>
 </html>

@@ -1,4 +1,6 @@
 ---
+import Copy from '../../../assets/images/icons/copy.svg';
+
 const { lang } = Astro.props;
 ---
 
@@ -14,8 +16,36 @@ const { lang } = Astro.props;
 		</div>
 	</header>
 	<slot />
+	<div class='container-copy'>
+		<button id='copy-to-clipboard'>
+			<img src={Copy} alt='copy-icon' class='copy-icon' />
+		</button>
+		<span id='tooltip' role='tooltip'>Copy to Clip</span>
+	</div>
 </div>
+<script>
+	const code: Element | null = document.querySelector('.astro-code');
+	const $btnCopy: HTMLButtonElement | null =
+		document.querySelector('#copy-to-clipboard');
+	const tooltip: HTMLElement | null = document.querySelector('#tooltip');
+	if (code === null) throw new Error('code is null');
+	if ($btnCopy === null) throw new Error('btnCopy is null');
+	if (tooltip === null) throw new Error('$btnCopy is null');
+
+	const text = code.textContent;
+	if (text === null) throw new Error('text is null');
+
+	$btnCopy.addEventListener('click', () => {
+		navigator.clipboard.writeText(text);
+	});
+</script>
 <style>
+	#tooltip {
+		display: none;
+		font-weight: bold;
+		font-size: 1rem;
+		color: var(--red--color);
+	}
 	.pre-custom {
 		margin: 1rem 0;
 	}
@@ -29,6 +59,16 @@ const { lang } = Astro.props;
 		border-radius: 1rem 1rem 0 0;
 		padding: 0.5rem 1rem;
 		gap: 1rem;
+	}
+	.container-copy {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: flex-end;
+		background: #0d1117;
+		padding: 0.5rem 0;
+		border-radius: 0 0 1rem 1rem;
+		padding: 0.5rem 1rem;
 	}
 	.points {
 		display: flex;
@@ -52,12 +92,23 @@ const { lang } = Astro.props;
 		background: #6f42c1;
 	}
 	.lang {
-		color: var(--red--color);
+		color: var(--primary--color);
 		font-size: 1rem;
 		opacity: 0.75;
 		font-weight: bold;
-		border: 1px solid var(--red--color);
+		border: 1px solid var(--primary--color);
 		padding: 0.3rem 0.5rem;
 		border-radius: 0.3rem;
+	}
+	#copy-to-clipboard {
+		background: #0d1117;
+		color: var(--primary--color);
+		padding: 0.3rem 0.5rem;
+		border: none;
+		cursor: pointer;
+	}
+	.copy-icon {
+		width: 1.5rem;
+		height: 1.5rem;
 	}
 </style>

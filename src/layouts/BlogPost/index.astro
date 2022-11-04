@@ -3,26 +3,25 @@ import '../../styles/post.css';
 import BaseHead from '../../components/BaseHead.astro';
 import Navbar from '@components/Navbar.astro';
 import { TitlePost } from './compoenents/TitlePost';
+import Elipse from '../../assets/images/icons/elipse.svg';
+import Footer from '@components/Footer.astro';
+import News from '../newPosts/index.astro';
 
 export interface Props {
 	content: {
 		title: string;
 		description: string;
-		pubDate?: string;
 		updatedDate?: string;
 		image?: string;
-		tags: any[];
+		tags: string[];
 		update: string;
 	};
 }
 
 const {
-	content: { title, description, image, tags, pubDate, update },
+	content: { title, description, image, tags, update },
 } = Astro.props;
-
-console.info('🚀 ~>  file: index.astro ~>  line 21 ~>  update', update);
-console.info('🚀 ~>  file: index.astro ~>  line 20 ~>  pubDate', pubDate);
-console.info('🚀 ~>  file: index.astro ~>  line 19 ~>  tags', tags);
+const updatedDate = update.split(' ').slice(0, 2).join(' ');
 ---
 
 <html lang='en'>
@@ -34,7 +33,25 @@ console.info('🚀 ~>  file: index.astro ~>  line 19 ~>  tags', tags);
 		<main class='main-post'>
 			<article class='main-post__article'>
 				<header class='main-post___article--header'>
-					<div></div>
+					<div class='post-header'>
+						<span class='post-header__updated'>
+							{updatedDate}
+						</span>
+						<div class='post-header__container'>
+							{
+								tags.map(tag => {
+									return (
+										<div class='post-header__container--tags'>
+											<img src={Elipse} alt='elipse-tag' />
+											<a href={`/posts/${tag}`} class='tag-elipse'>
+												{tag}
+											</a>
+										</div>
+									);
+								})
+							}
+						</div>
+					</div>
 					<TitlePost client:visible title={title} />
 					<!-- <div class='container-image-post'>
 						<img src={image} alt='title' class='image-post' />
@@ -43,9 +60,11 @@ console.info('🚀 ~>  file: index.astro ~>  line 19 ~>  tags', tags);
 				<slot />
 			</article>
 		</main>
+		<div class='separator-post'></div>
+		<News />
+		<Footer />
 		<style>
 			.main-post___article--header {
-				/* margin: 1.5rem 0px; */
 				margin-bottom: 5rem;
 				position: relative;
 			}
@@ -59,6 +78,7 @@ console.info('🚀 ~>  file: index.astro ~>  line 19 ~>  tags', tags);
 				justify-content: center;
 				align-items: center;
 			}
+
 			.container-image-post::before {
 				content: '';
 				position: absolute;
@@ -68,12 +88,52 @@ console.info('🚀 ~>  file: index.astro ~>  line 19 ~>  tags', tags);
 				height: 100%;
 				background-color: rgba(0, 0, 0, 0.5);
 			}
+
 			.image-post {
 				width: 100%;
 				margin: 0 auto;
 				height: 100%;
 				object-fit: cover;
 				border-radius: 1rem;
+			}
+
+			.post-header {
+				display: flex;
+				flex-direction: row;
+				gap: 2rem;
+			}
+
+			.post-header__updated {
+				color: var(--gray--color);
+				font-weight: bold;
+				font-size: 1.5rem;
+			}
+
+			.post-header__container {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				gap: 0.5rem;
+			}
+			.post-header__container--tags {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				gap: 0.5rem;
+			}
+
+			.post-header__container--tags > a.tag-elipse {
+				font-size: 12px;
+				color: var(--white--color);
+				font-weight: bold;
+				text-decoration: none;
+			}
+
+			.separator-post {
+				width: 100%;
+				height: 1px;
+				background-color: var(--gray--color);
+				margin: 3rem 0;
 			}
 		</style>
 	</body>

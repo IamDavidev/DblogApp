@@ -1,0 +1,64 @@
+---
+import tags from '~/constants/tags.const';
+---
+
+<div class='footer-divider'></div>
+<footer class='footer-dblog'>
+	<h3 class='footer-dblog__title'>Dblog</h3>
+	<div class='footer-dblog__tags'>
+		{
+			tags.map(tag => {
+				return (
+					<div class='footer-dblog__tags'>
+						<a href={`/posts/${tag}`} class='tag__link'>
+							{tag}
+						</a>
+					</div>
+				);
+			})
+		}
+	</div>
+</footer>
+
+<style>
+	.footer-divider {
+		width: 100%;
+		height: 1px;
+		background-color: var(--gray--color);
+		margin: 2rem auto;
+	}
+	.footer-dblog {
+		display: flex;
+		padding: 2rem 0;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.footer-dblog__title {
+		font-size: 96px;
+		font-weight: 700;
+		color: var(--primary--color);
+	}
+	.footer-dblog__tags {
+		display: flex;
+		align-items: center;
+		flex-direction: row;
+		justify-content: center-;
+		gap: 2rem;
+	}
+	.tag__link {
+		text-decoration: none;
+		font-weight: bold;
+		padding: 0.8rem 1.8rem;
+		border-radius: 0.5rem;
+		background-color: var(--effect--color);
+		color: var(--bg--color);
+		/* transition: all 0.5s ease-in-out; */
+		transition: all ease-in-out 0.5s;
+		border: 3px solid var(--effect--color);
+	}
+	.tag__link:hover {
+		color: var(--effect--color);
+		background-color: transparent;
+	}
+</style>

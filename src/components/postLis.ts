@@ -1,9 +1,9 @@
 import type { TemplateResult } from 'lit';
 import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import '~/components/ButtonAddFavorites';
 
 import Elipse from '../assets/images/icons/elipse.svg';
+import '~/components/ButtonAddFavorites';
 
 interface propsPostList {
 	title: string;

@@ -1,5 +1,4 @@
 ---
-const { title } = Astro.props;
 ---
 
 <div class='post-container'>
@@ -7,14 +6,24 @@ const { title } = Astro.props;
 </div>
 <script defer>
 	const allLinks = document.querySelectorAll('.post-container a');
+	const allPreCodes = document.querySelectorAll('.post-container pre');
+	const allStrongs = document.querySelectorAll('.post-container strong');
 	allLinks.forEach(link => {
 		link.setAttribute('target', '_blank');
+		link.classList.add('post-link');
+	});
+	allStrongs.forEach(strong => {
+		strong.classList.add('post-strong');
+	});
+	allPreCodes.forEach(pre => {
+		pre.classList.add('post-pre');
 	});
 </script>
 
 <style>
 	.post-container {
 		display: inline;
+		overflow: hidden;
 	}
 	.post-container > p {
 		color: red;

@@ -50,6 +50,11 @@ export class TitlePost extends LitElement {
 			position: absolute;
 			background-color: var(--primary--color);
 		}
+		@media (max-width: 426px) {
+			.container__title-post {
+				font-size: 48px;
+			}
+		}
 	`;
 
 	render(): TemplateResult<1> {

@@ -1,0 +1,59 @@
+---
+layout: ../../layouts/BlogPost/index.astro
+new: true
+tags:
+  - Terminal
+title: Instalcion de oh my bash
+description: Instalacion de oh my bash desde la terminal
+update: '3 November 2021'
+image: '/images-post/netlify-eror-404-deploy.png'
+userName: 'David Lezama'
+read: '5 min'
+---
+
+import PostLayout from '../../layouts/post/components/WrapperPostLayout.astro';
+import CodeLayout from '../../layouts/post/components/CodeBlockLayout.astro';
+
+<PostLayout>
+
+Ocuparemos el siguiente comando para instalar oh my bash en nuestro sistema:
+
+### `curl`
+
+<CodeLayout lang="bash">
+
+```bash
+bash -c "$(curl -fsSL https://raw.github.com/ohmybash/oh-my-bash/master/tools/install.sh)"
+```
+
+</CodeLayout>
+
+### `wget`
+
+<CodeLayout lang="bash">
+
+```bash
+bash -c "$(wget https://raw.github.com/ohmybash/oh-my-bash/master/tools/install.sh -O -)"
+```
+
+</CodeLayout>
+
+cuando se termine de instalar el paquete lo que tenemos que hacer es ejecutar el siguiente comando con el que entraremos a las configuraciones de bash:
+
+## cambiar el theme
+
+<CodeLayout lang="bash">
+
+```bash
+nano ~/.bashrc
+```
+
+</CodeLayout>
+
+una vez dentro de la configuracion buscaremos el siguiente comando: **OH_THEME="font"**
+
+podemos volver a cambiar el theme entrando nuevamente en la configuracion : aqui las opciones [aqui](https://github.com/ohmybash/oh-my-bash/wiki/Themes)
+
+daremos **ctrl k** + **y** para guardar los cambios
+
+</PostLayout>

@@ -6,12 +6,13 @@ const posts = await Astro.glob('../../pages/post/*.{md,mdx}');
 
 <section>
 	<h2 class='container-all-posts__title'>Posts</h2>
-	<>
+	<div>
 		{
 			posts.map(post => {
 				const data = post.frontmatter;
 				return (
 					<PostList
+						tags={data.tags}
 						client:visible
 						imageProfile=''
 						url={post.url}
@@ -24,7 +25,7 @@ const posts = await Astro.glob('../../pages/post/*.{md,mdx}');
 				);
 			})
 		}
-	</>
+	</div>
 </section>
 
 <style>
@@ -34,6 +35,6 @@ const posts = await Astro.glob('../../pages/post/*.{md,mdx}');
 		font-weight: bold;
 		font-size: 96px;
 		color: var(--primary--color);
-		margin: 2rem 0;
+		margin: 5rem 0;
 	}
 </style>

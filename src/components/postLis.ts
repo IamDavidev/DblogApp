@@ -2,6 +2,7 @@ import type { TemplateResult } from 'lit';
 import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
+import '@components/Tags';
 import Elipse from '../assets/images/icons/elipse.svg';
 import '~/components/ButtonAddFavorites';
 
@@ -13,6 +14,7 @@ interface propsPostList {
 	userName: string;
 	imageProfile: string;
 	url: string;
+	tags: string[];
 }
 
 const tagName = 'post-list';
@@ -30,24 +32,39 @@ export class PostList extends LitElement {
 	@property({ type: String }) userName: string = '';
 	@property({ type: String }) imageProfile: string = '';
 	@property({ type: String }) url: string = '';
+	@property({ type: Array }) tags: string[] = [];
 
 	static styles = css`
 		.container {
+			margin: 3rem 0px;
+		}
+		.post {
 			display: flex;
 			justify-content: space-between;
 			align-items: flex-start;
-			padding: 1rem;
+			padding: 0 1rem;
+			border-radius: 1rem;
+			transition: all 0.3s ease-in-out;
 		}
+		/*  if hover only apply box - shadow  */
 
 		.post-info {
 			display: flex;
 			justify-content: flex-start;
 			align-items: flex-start;
 			gap: 1rem;
+			overflow: hidden;
+			max-height: 150px;
+		}
+
+		.post-info__header {
+			display: flex;
+			flex-direction: column;
+			gap: 1rem;
 		}
 		.post-info__header > header {
 			display: flex;
-			align-items: center;
+			align-items: flex-start;
 			justify-content: flex-start;
 			gap: 2rem;
 		}
@@ -55,7 +72,7 @@ export class PostList extends LitElement {
 		.post-info__image {
 			width: 160px;
 			max-width: 160px;
-			height: 132px;
+			height: 150px;
 			object-fit: cover;
 			border-radius: 1rem;
 		}
@@ -66,7 +83,7 @@ export class PostList extends LitElement {
 			font-size: 32px;
 			text-decoration: none;
 		}
-		/*  hover apply degraded */
+
 		.post-info__header--title:hover {
 			color: var(--white--color);
 			text-shadow: 0 0 2px var(--effect--color);
@@ -78,7 +95,8 @@ export class PostList extends LitElement {
 			flex-direction: column;
 			justify-content: center;
 			align-items: flex-end;
-			padding: 1rem 0;
+			/* padding: 1rem 0; */
+			min-width: 160px;
 		}
 		.post-data > .user-post {
 			display: flex;
@@ -102,42 +120,56 @@ export class PostList extends LitElement {
 			font-weight: bold;
 			margin: 0;
 		}
+		.long-title {
+			max-width: 50%;
+			font-size: 1.6rem;
+		}
+		.post-tags {
+			margin-left: calc(3rem + 160px);
+		}
 	`;
 
 	render(): TemplateResult<1> {
 		return html`
-			<article class="container">
-				<div class="post-info">
-					<img
-						src="${this.image}"
-						alt="${this.title}"
-						class="post-info__image"
-					/>
-					<div class="post-info__header">
-						<header>
-							<a href="${this.url}" class="post-info__header--title"
-								>${this.title}</a
-							>
-							<div class="post-info__header--update">
-								<img src="${Elipse}" alt="icon-update" />
-								<span class="post-info__header--update"
-									>${this.updatedPost}</span
+			<div class="container">
+				<article class="post">
+					<div class="post-info">
+						<img
+							src="${this.image}"
+							alt="${this.title}"
+							class="post-info__image"
+						/>
+						<div class="post-info__header">
+							<header>
+								<a
+									href="${this.url}"
+									class="post-info__header--title ${this.title.length > 50
+										? 'long-title'
+										: 'small-title'}"
+									>${this.title}</a
 								>
-							</div>
-						</header>
-						<p class="post-description">${this.description}</p>
+								<div class="post-info__header--update">
+									<img src="${Elipse}" alt="icon-update" />
+									<span class="post-info__header--update"
+										>${this.updatedPost}</span
+									>
+								</div>
+							</header>
+							<p class="post-description">${this.description}</p>
+						</div>
 					</div>
-				</div>
-				<div class="post-data">
-					<div class="user-post">
-						<a href="https://github.com/iamdavidev" target="_blank">
-							<img src="/github.svg" alt="" />
-						</a>
-						<span class="post_data--user"> ${this.userName} </span>
+					<div class="post-data">
+						<div class="user-post">
+							<a href="https://github.com/iamdavidev" target="_blank">
+								<img src="/github.svg" alt="" />
+							</a>
+							<span class="post_data--user"> ${this.userName} </span>
+						</div>
+						<button-add-favorites></button-add-favorites>
 					</div>
-					<button-add-favorites></button-add-favorites>
-				</div>
-			</article>
+				</article>
+				<div class="post-tags"></div>
+			</div>
 		`;
 	}
 }

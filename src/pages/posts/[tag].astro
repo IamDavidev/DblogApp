@@ -48,6 +48,7 @@ const description = 'This is a description';
 					const data = post.frontmatter;
 					return (
 						<PostList
+							tags={data.tags}
 							client:visible
 							imageProfile=''
 							url={post.url}
@@ -69,6 +70,11 @@ const description = 'This is a description';
 				font-size: 132px;
 				color: var(--primary--color);
 				margin: 2rem 0;
+			}
+			@media (max-width: 426px) {
+				.container-tag__title {
+					font-size: 64px;
+				}
 			}
 		</style>
 	</body>

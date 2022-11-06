@@ -14,11 +14,11 @@ export class TitleBlog extends LitElement {
 		}
 
 		.container__title {
-			font-size: 320px;
+			font-size: 325px;
 			font-family: 'Raleway-bold';
 			font-weight: bold;
 			margin: 0;
-			padding: 2rem 0;
+			padding: 1rem 0;
 			text-transform: uppercase;
 			position: relative;
 			animation: shadow-title 2s ease-in-out;
@@ -48,6 +48,17 @@ export class TitleBlog extends LitElement {
 			position: absolute;
 			top: 0;
 			right: -50%;
+		}
+
+		/* @media max-widt:480px) {
+			.container__title {
+				font-size: 200px;
+			}
+		} */
+		@media (max-width: 426px) {
+			.container__title {
+				font-size: 112px;
+			}
 		}
 
 		@keyframes shadow-title {

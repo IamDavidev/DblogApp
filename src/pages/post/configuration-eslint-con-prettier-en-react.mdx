@@ -1,0 +1,162 @@
+---
+layout: ../../layouts/BlogPost/index.astro
+new: true
+tags:
+  - React
+  - Config
+title: Configuracion de ESLint con Prettier en una aplicacion de React
+description: Configuracion de ESLint con Prettier en una aplicacion de React para mejorar la calidad del codigo y la experiencia de desarrollo, poder formatear el codigo y evitar errores de sintaxis.
+update: '03 November  2022'
+image: '/images-post/netlify-eror-404-deploy.png'
+userName: 'David Lezama'
+read: 10
+---
+
+import PostLayout from '../../layouts/post/components/WrapperPostLayout.astro';
+import CodeLayout from '../../layouts/post/components/CodeBlockLayout.astro';
+
+<PostLayout>
+## Instalación de ESLint para que funcione con Prettier `React`
+
+requisitos
+
+- tener un proyecto de React creado
+
+- instalar la extensión de ESLint
+
+- instalar la extensión de prettier
+
+Lo primero que tenemos que hacer es agregar el paquete de ESLint a nuestro proyecto de React.
+
+**`yarn`**
+
+<CodeLayout lang="bash">
+
+```bash
+yarn add eslint -D
+```
+
+</CodeLayout>
+
+**`npm`**
+
+<CodeLayout lang="bash">
+
+```bash
+npm install -D eslint
+```
+
+</CodeLayout>
+
+**`pnpm`**
+
+<CodeLayout lang="bash">
+
+```
+pnpm add -D eslint
+```
+
+</CodeLayout>
+
+para que empiece a funcionar podemos ejecutar el siguiente comando en la terminal:
+
+<CodeLayout lang="bash">
+
+```bash
+npx eslint --init
+```
+
+</CodeLayout>
+
+opciones que selecionaremos son :
+
+- **to check syntax, find problems, and enforce code style**
+
+- **JavaScript Modules (import/export)**
+
+- **React**
+
+- **No** (depende si utilizas TypeScript o no)
+
+- **browser**
+
+- **use a popular style guide**
+
+- **[Standard](https://github.com/standard/standard)**
+
+- **JavaScript**
+
+- **yes**
+
+- **yes**
+
+cuando se termine de instalar la configuracion de Eslint nos deberia de generar en un archivo .eslintrc.js
+
+para contuinar debemos de crear un archivo llamado .prettierrc y selecionar las opciones que quremos que se utilizen para nuestro proyecto.
+[Aqui las opciones](https://prettier.io/docs/en/options.html)
+
+la que yo uso es :
+
+<CodeLayout lang="json">
+
+```json
+{
+	"useTabs": true,
+	"singleQuote": true,
+	"jsxSingleQuote": true,
+	"bracketSpacing": true,
+	"jsxBracketSameLine": true,
+	"arrowParens": "avoid"
+}
+```
+
+</CodeLayout>
+
+para contuinar lo que aremos sera crear dos archivos en la raiz de proyecto llamados **.prettierignore** y **.eslintignore**
+
+dentro de **.prettierignore** escribiremos lo siguiente:
+
+<CodeLayout lang="text">
+
+```py
+dist
+pnpm-lock.json
+```
+
+</CodeLayout>
+
+y de **.eslintignore** escribiremos lo siguiente:
+
+<CodeLayout lang="text">
+
+```py
+dist
+pnpm-lock.json
+.eslintrc.js
+.prettierrc
+.prettierignore
+.eslintignore
+```
+
+</CodeLayout>
+
+por utimo en la parte de **.eslintrc.js** escribiremos lo siguiente:
+
+en la parte de **extends** escribiremos lo siguiente:
+
+<CodeLayout lang="json">
+
+```json
+{
+	"extends": [
+		"plugin:react/recommended",
+		"standard",
+		"plugin:react/jsx-runtime",
+		"eslint-config-prettier"
+	]
+}
+```
+
+</CodeLayout>
+
+</PostLayout>

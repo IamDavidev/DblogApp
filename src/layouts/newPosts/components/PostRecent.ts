@@ -1,7 +1,8 @@
 import { css, html, LitElement, TemplateResult } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import Elipse from '../../../assets/images/icons/elipse.svg';
 
+import '@components/Tags';
+import Elipse from '~/assets/images/icons/elipse.svg';
 import SavedIcon from '~/assets/images/icons/saved.svg';
 
 export const tagName = 'post-recent';
@@ -104,22 +105,34 @@ export class PostRecent extends LitElement {
 			align-items: center;
 			gap: 0.5rem;
 		}
+		.long-title {
+			font-size: 24px;
+		}
+		img {
+			max-width: 100%;
+		}
 
-		@media screen and (min-width: 1025px) {
+		.new-post {
+			width: 380px;
+			max-width: 380px;
+			padding: 32px;
+			min-height: 600px;
+			box-sizing: border-box;
+		}
+
+		.container__image--picture > img {
+			width: 100%;
+			object-fit: cover;
+			max-width: 316px;
+			min-height: 250px;
+			border-radius: 1rem;
+		}
+		@media (max-width: 426px) {
 			.new-post {
-				width: 380px;
-				max-width: 380px;
-				padding: 32px;
-				height: 600px;
-				box-sizing: border-box;
+				margin: 0 auto;
 			}
-
 			.container__image--picture > img {
 				width: 100%;
-				object-fit: cover;
-				max-width: 316px;
-				min-height: 250px;
-				border-radius: 1rem;
 			}
 		}
 	`;
@@ -146,17 +159,14 @@ export class PostRecent extends LitElement {
 							</button>
 						</div>
 					</div>
-					<div class="container__tags">
-						${this.tags.slice(0, 3).map(tag => {
-							return html`
-								<a class="container__tags--tag" href="/posts/${tag}">
-									<span> ${tag} </span>
-								</a>
-							`;
-						})}
-					</div>
+					<render-tags tags="${this.tags}"></render-tags>
 					<div class="container__content">
-						<a href="${this.url}" class="container__content--title">
+						<a
+							href="${this.url}"
+							class="container__content--title ${this.title.length > 50
+								? 'long-title'
+								: 'small-title'}"
+						>
 							${this.title}
 						</a>
 						<p class="container__content--description">

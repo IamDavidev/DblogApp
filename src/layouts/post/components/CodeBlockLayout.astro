@@ -1,6 +1,4 @@
 ---
-import Copy from '../../../assets/images/icons/copy.svg';
-
 const { lang } = Astro.props;
 ---
 
@@ -16,29 +14,7 @@ const { lang } = Astro.props;
 		</div>
 	</header>
 	<slot />
-	<div class='container-copy'>
-		<button id='copy-to-clipboard'>
-			<img src={Copy} alt='copy-icon' class='copy-icon' />
-		</button>
-		<span id='tooltip' role='tooltip'>Copy to Clip</span>
-	</div>
 </div>
-<script>
-	const code: Element | null = document.querySelector('.astro-code');
-	const $btnCopy: HTMLButtonElement | null =
-		document.querySelector('#copy-to-clipboard');
-	const tooltip: HTMLElement | null = document.querySelector('#tooltip');
-	if (code === null) throw new Error('code is null');
-	if ($btnCopy === null) throw new Error('btnCopy is null');
-	if (tooltip === null) throw new Error('$btnCopy is null');
-
-	const text = code.textContent;
-	if (text === null) throw new Error('text is null');
-
-	$btnCopy.addEventListener('click', () => {
-		navigator.clipboard.writeText(text);
-	});
-</script>
 <style>
 	#tooltip {
 		display: none;

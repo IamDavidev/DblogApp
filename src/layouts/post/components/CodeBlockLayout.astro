@@ -1,6 +1,31 @@
 ---
 const { lang } = Astro.props;
+import Copy from '~/assets/images/icons/copy.svg';
 ---
+
+<script>
+	const selectores = {
+		code: '.astro-code',
+		btnCopy: '.pre-custom #copy-to-clipboard',
+	};
+	const $codes: NodeListOf<Element> = document.querySelectorAll(
+		selectores.code
+	);
+	const $buttonCopys: NodeListOf<Element> = document.querySelectorAll(
+		selectores.btnCopy
+	);
+
+	$buttonCopys.forEach((btn, index) => {
+		btn.addEventListener('click', () => {
+			const textCode = $codes[index].textContent as string;
+			navigator.clipboard.writeText(textCode);
+			btn.classList.add('copied');
+			setTimeout(() => {
+				btn.classList.remove('copied');
+			}, 2000);
+		});
+	});
+</script>
 
 <div class='pre-custom'>
 	<header class='header-custom'>
@@ -9,8 +34,27 @@ const { lang } = Astro.props;
 			<div></div>
 			<div></div>
 		</div>
-		<div class='lang'>
-			{lang}
+		<div class='options-of-code'>
+			<button id='copy-to-clipboard'>
+				<!-- <img src={Copy} alt='copy-icon' class='copy-icon' /> -->
+				<svg
+					xmlns='http://www.w3.org/2000/svg'
+					fill='none'
+					viewBox='0 0 24 24'
+					stroke-width='1.5'
+					stroke='currentColor'
+					class='w-6 h-6'
+				>
+					<path
+						stroke-linecap='round'
+						stroke-linejoin='round'
+						d='M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75'
+						color='#fff'></path>
+				</svg>
+			</button>
+			<span class='lang'>
+				{lang}
+			</span>
 		</div>
 	</header>
 	<slot />
@@ -76,15 +120,22 @@ const { lang } = Astro.props;
 		padding: 0.3rem 0.5rem;
 		border-radius: 0.3rem;
 	}
-	#copy-to-clipboard {
-		background: #0d1117;
-		color: var(--primary--color);
-		padding: 0.3rem 0.5rem;
-		border: none;
-		cursor: pointer;
+	.options-of-code {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
 	}
-	.copy-icon {
-		width: 1.5rem;
-		height: 1.5rem;
+	#copy-to-clipboard {
+		border: none;
+		background-color: transparent;
+	}
+	#copy-to-clipboard > svg {
+		width: 20px;
+		height: auto;
+	}
+	.copied > svg > path {
+		color: var(--effect--color);
 	}
 </style>

@@ -1,7 +1,9 @@
 ---
-import BaseHead from '@components/BaseHead.astro';
+import PageLayout from '@components/PageLayout.astro';
+import News from '@layouts/newPosts/index.astro';
 import { PostList } from '@components/postLis';
 import tags from '~/constants/tags.const';
+import { Langs } from '~/interfaces/langs.enum';
 
 export async function getStaticPaths(props: any): Promise<any> {
 	const params = tags.map(tag => ({ params: { tag } }));
@@ -29,16 +31,11 @@ allPosts.forEach(post => {
 });
 
 const title = `Posts ${tag} | Dblog`;
-const description = 'This is a description';
+const description = 'All Posts about ' + tag;
 ---
 
-<!DOCTYPE html>
-<html lang='es'>
-	<head>
-		<BaseHead title={title} description={description} />
-	</head>
-
-	<body>
+<PageLayout lang={Langs.ES} title={title} description={description}>
+	<div class='contianer___tag--page'>
 		<h2 class='container-tag__title tag-contain' id='tag_title' data-tag={tag}>
 			#{tag && tag}
 		</h2>
@@ -61,21 +58,72 @@ const description = 'This is a description';
 					);
 				})
 			}
+			{
+				postsTag.length === 0 && (
+					<div class='container-tag__not-found'>
+						<h3 class='container-tag__not-found--title'>
+							No se encontraron resultados
+						</h3>
+						<p class='container-tag__not-found--description'>
+							pero puedes leer alguno de los mas Recientes
+						</p>
+						<div>
+							<News />
+						</div>
+					</div>
+				)
+			}
 		</div>
-		<style>
+	</div>
+	<style>
+		.contianer___tag--page {
+			margin-bottom: 10rem;
+		}
+		.container-tag__title {
+			display: flex;
+			font-family: 'Raleway-bold';
+			font-weight: bold;
+			font-size: 132px;
+			color: var(--primary--color);
+			margin: 2rem 0;
+			padding: 0.5rem 1rem;
+			position: relative;
+		}
+		.container-tag__title::before {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 3px;
+			border-radius: 1rem;
+			background-color: var(--primary--color);
+		}
+		.container-tag__not-found {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			height: 100%;
+		}
+		.container-tag__not-found--title {
+			font-family: 'Raleway-bold';
+			font-weight: bold;
+			font-size: 32px;
+			color: var(--effect--color);
+		}
+		.container-tag__not-found--description {
+			font-size: 24px;
+			color: var(--gray--color);
+		}
+		.container-tag__not-found--description > strong {
+			color: var(--primary--color);
+		}
+
+		@media (max-width: 426px) {
 			.container-tag__title {
-				display: flex;
-				font-family: 'Raleway-bold';
-				font-weight: bold;
-				font-size: 132px;
-				color: var(--primary--color);
-				margin: 2rem 0;
+				font-size: 64px;
 			}
-			@media (max-width: 426px) {
-				.container-tag__title {
-					font-size: 64px;
-				}
-			}
-		</style>
-	</body>
-</html>
+		}
+	</style>
+</PageLayout>

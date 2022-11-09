@@ -1,10 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+/* 
+	TODO change the font to Roboto 
+ */
 .main-post {
 	max-width: 60%;
 	margin: 0rem auto;
 	position: relative;
 	z-index: 99;
 	background-color: var(--bg--color);
-	font-family: 'Roboto-medium';
+	/* font-family: 'Roboto-medium'; */
+	font-family: 'Roboto', sans-serif;
 }
 .post-pre {
 	padding: 1rem 1.5rem;
@@ -17,31 +22,30 @@
 .post-pre > code {
 	font-family: 'Lilex';
 }
-/* .post-container > pre {
-	padding: 1rem 1.5rem;
-	margin: 0;
-	background-color: var(--gray--color);
-	border-radius: 1rem;
-}
-.post-container > .pre-custom > pre {
-	padding: 1rem 1.5rem;
-	margin: 0;
-	background-color: var(--gray--color);
-	border-radius: 0 0 1rem 1rem;
-	font-family: 'Lilex';
+.post-container > h2 {
+	font-family: 'Raleway-bold';
 	font-weight: bold;
+	color: var(--effect--color);
+	border-bottom: 1px solid var(--effect--color);
+	padding-bottom: 0.5rem;
+}
+.post-container > h3 {
+	font-family: 'Raleway-bold';
+	font-weight: bold;
+	color: var(--effect--color);
+	border-bottom: 1px solid var(--effect--color);
+	padding-bottom: 0.5rem;
 }
 
-.post-container > .pre-custom > pre > code {
-	font-family: 'Lilex';
+.post-container > blockquote {
+	font-family: 'Roboto-medium';
+	/* background-color: var(--gray--color); */
+	background: linear-gradient(360deg, var(--bg--color), var(--gray--color));
+	padding: 0.5rem 1rem;
+	padding-bottom: 1rem;
+	border-radius: 1rem;
+	margin: 0;
 }
-.post-container > pre > code {
-	width: auto;
-	color: var(--primary--color);
-	font-size: 1rem;
-	font-family: 'Lilex';
-	font-weight: bold;
-} */
 
 .post-strong {
 	font-family: 'Lilex';

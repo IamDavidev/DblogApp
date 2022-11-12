@@ -125,6 +125,7 @@ export class PostRecent extends LitElement {
 			object-fit: cover;
 			max-width: 316px;
 			min-height: 250px;
+			height: 250px;
 			border-radius: 1rem;
 		}
 		@media (max-width: 426px) {

@@ -1,0 +1,257 @@
+---
+layout: ../../layouts/BlogPost/index.astro
+# recentPosts: ../../components/RecentPosts.astro
+new: true
+# max 2 or 3 tags small
+tags:
+  - web
+title: POO en TypeScript - conceptos y ejemplos
+description: En este post vamos a ver los conceptos básicos de la programación orientada a objetos en TypeScript, y veremos ejemplos de cómo implementarlos en nuestro código.
+update: today
+image:
+userName: David Lezama
+read: 30 min
+---
+
+import PostLayout from '../../layouts/post/components/WrapperPostLayout.astro';
+import CodeLayout from '../../layouts/post/components/CodeBlockLayout.astro';
+
+<PostLayout>
+
+## `Concepto`
+
+Para empezar a enterder que es POO ( programacion orientada a objetos ) hay que entender que **_poo_** es un **paradigma** que se usa en la programacion que basicamente se basa en la forma de como se abordaria el camino para la solucion de un problema basandose en entrucuras de datos como **clase** y **objeto**.
+
+Pero por que este metodo es tan conocido, no es muy complejo? dificil ?, y la verdad que es totalmente lo contrario lo que busca este **paradigma** es la abstracion de un codigo que solo entiende la maquina ( codigo que es capaz de ejecutar tu ordenador, browser o el lugar donde se ejcute ) a un codigo que es entedible por el pragramador, este **paradigma** lo que hace es tratar modelar nuestro codigo o entidades de una forma que seria el mundo real.
+
+Si queremos enteder esta forma de escribir codigo y aplicarlo en nuestras applicacion, tenemos que tener en cuenta conceptos en los cual se basa.
+
+### `Objeto`
+
+Es un tipo de dato que tiene atributos y metodos, es decir es una entidad que tiene caracteristicas y acciones que puede realizar.
+
+por ejemplo si en mi aplicacion tenemos **Usuarios**, cada usuario tiene sus atributos como un nombre, apellido, edad, etc. y cada usuario puede realizar acciones como registrarse, iniciar sesion, etc. entonces cada usuario seria un objeto que tiene propiedades y metodos. Pero entoces si cada usuario es una entidad necesitamos una forma de modelarlos, para eso es que tenemos las **clases** es decir las plantillas de los objetos.
+
+### `Clase`
+
+La clase es una plantilla de un objeto, es decir es una estructura que define las propiedades y metodos que tendra un objeto, es decir es la forma que tenemos de modelar un objeto el cual va a tener las caracteristicas que nosotros le definamos.
+
+### `Instancia`
+
+La instancia es un objeto que se crea a partir de una clase.
+
+> Resumiendo, una **clase** es una **_plantilla_** para crear **objetos**, y un **objeto** es una **instancia** de una dicha **clase**.`
+
+otro termino que se usa es **constructor** que es un metodo especial que se usa para crear e inicializar un objeto creado a partir de una clase.
+
+## `Ejemplos de POO en TypeScript`
+
+Apesar de los que los ejemplos estan en **TypeScript** el concepto es el mismo en cualquier lenguaje de programacion. Asi que lo puedes aplicar el codigo de los ejemplos en JavaScript solo omitiendo el tipado.
+
+Suponiendo que tenemos un codigo que genera **Shops**, para empezar a vender productos online.
+
+el codigo seria algo asi:
+
+<CodeLayout lang="TypeScript">
+
+```ts
+const store1 = '🍕 DenoPizzaLandia 🍕';
+const products: Array<string> = [
+	'pizza of cheese',
+	'hamburguer of cheese',
+	'hot dog with cheese',
+];
+let stockOfCheese = 1000;
+const costOfCheeseByProduct = 100;
+
+function useCheese() {
+	console.log('🧀 Using cheese 🧀');
+	stockOfCheese -= costOfCheeseByProduct;
+}
+
+function logStockOfCheeseReamining(): void {
+	console.log(`>${store1}<`);
+	console.log(`The stock of cheese remaining is: ${stockOfCheese}`);
+}
+
+useCheese(); // 🧀 Using cheese 🧀
+useCheese(); // 🧀 Using cheese 🧀
+useCheese(); // 🧀 Using cheese 🧀
+logStockOfCheeseReamining();
+// >🍕 DenoPizzaLandia 🍕< The stock of cheese remaining is: 700
+```
+
+</CodeLayout>
+
+muy bueno pero que pasa si tenemos mas de una tienda?
+
+<CodeLayout lang="TypeScript">
+
+```ts
+const store1 = '🍕 DenoJamLandia 🍕';
+const products: Array<string> = [
+ 'pizza of cheese',
+ 'hamburguer of cheese',
+ 'hot dog with cheese',
+];
+let stockOfCheese = 1000;
+const costOfCheeseByProduct = 100;
+
+const store2 = '🍕 DenoPizzaLandia 🍕';
+const products2: Array<string> = [
+ 'pizza of Jam',
+ 'hamburguer of Jam',
+ 'hot dog with Jam',
+];
+let stockOfJam = 900;
+const costOfJamByProduct = 25;
+
+... // y asi con cada tienda
+```
+
+</CodeLayout>
+
+tendriamos que repetir el codigo de la tienda, los productos, el stock, etc. y eso no es muy bueno.
+
+Entonces como podemos solucionar esto? bueno en lo primero que pensamos al no conocer mucho de **POO** es que podemos crear una funcion que nos genere una tienda y luego modificar sus **_protypes_**, algo asi:
+
+<CodeLayout lang="TypeScript">
+
+```ts
+interface IStore {
+	storeName: string;
+	products: Array<string>;
+	stockOfProduct: number;
+	costOfProductByProduct: number;
+}
+
+function Store(
+	this: IStore,
+	{ storeName, products, stockOfProduct, costOfProductByProduct }: IStore
+) {
+	this.storeName = storeName;
+	this.products = products;
+	this.stockOfProduct = stockOfProduct;
+	this.costOfProductByProduct = costOfProductByProduct;
+}
+
+Store.prototype.useProduct = function (): void {
+	console.log('using product');
+	this.stockOfProduct -= this.costOfProductByProduct;
+};
+
+Store.prototype.logStockOfCheeseReamining = function (): void {
+	console.log(`>${this.storeName}<`);
+	console.log(`The stock of cheese remaining is: ${this.stockOfProduct}`);
+};
+
+const denoPizzaLandia = new (Store as any)({
+	StoreName: '🍕 DenoPizzaLandia 🍕',
+	products: ['pizza of cheese', 'hamburguer of cheese', 'hot dog with cheese'],
+	stockOfProduct: 1000,
+	costOfProductByProduct: 100,
+});
+const denoJam = new (Store as any)({
+	StoreName: '🍕 DenoJamLandia 🍕',
+	products: ['pizza of Jam', 'hamburguer of Jam', 'hot dog with Jam'],
+	stockOfProduct: 900,
+	costOfProductByProduct: 25,
+});
+
+denoPizzaLandia.useProduct(); // using product
+denoPizzaLandia.useProduct(); // using product
+denoPizzaLandia.useProduct(); // using product
+denoPizzaLandia.useProduct(); // using product
+denoPizzaLandia.logStockOfCheeseReamining(); // >🍕 DenoPizzaLandia 🍕< The stock of cheese remaining is: 600
+denoJam.useProduct(); // using product
+denoJam.useProduct(); // using product
+denoJam.useProduct(); //  using product
+denoJam.logStockOfCheeseReamining(); // >🍕 DenoJamLandia 🍕< The stock of cheese remaining is: 825
+```
+
+</CodeLayout>
+
+como vemos ya no tenemos que repetir el codigo de la tienda, los productos, el stock, etc.
+pero aun asi tenemos un problema y es que se vuelve un poco dificil de leer y entender a mi parecer, ademas de que ya casi nadien o en principio nadie usa el **prototype** de esta manera.
+
+Pero hay algo y es que tenemos otros conceptos que hay que definir el **_prototype_** y el **_this_**.
+
+vamos a definir estos dos conceptos para que sea poco mas **_facil de entender_**.
+
+## `this`
+
+`this` es una palabra reservada que hace referencia al objeto actual, es decir, el objeto que esta siendo ejecutado en ese momento.
+
+## `prototype`
+
+`prototype` es la propiedad de un objeto que viene dada por defecto y que nos permite agregar propiedades , metodos y se aplican a todos los objetos que se creen a partir de ese objeto.
+
+un ejemplo en **JavaScript** - **TypeScript** seria algo asi:
+
+> Un ejemplo de esto seria que el objeto **_Array_** tiene una propiedad llamada **_prototype_** y que esta propiedad tiene un metodo llamado **_map_** y que este metodo se aplica a todos los objetos que se creen a partir de **_Array_**.
+
+unos ejemplos en la vida real seria algo asi:
+
+> Un ejemplo de esto seria que el objeto **_Persona_** tiene una propiedad llamada **_prototype_** y que esta propiedad tiene un metodo llamado **_hablar_** y que este metodo se aplica a todos los objetos que se creen a partir de **_Persona_**.
+
+otro:
+
+> El **_prototype_** es la base de la pizza y el **_contructor_** son los ingredientes de la pizza.
+
+Apartir de este codigo podemos ver en el **\_protype-**, se paso a una sintaxis mas moderna y mas entendible.
+
+Esto fue apartir de la version **ES6** de **JavaScript** se introdujo la palabra reservada **_class_** que nos permite crear objetos de una manera mas sencilla y entendible.
+
+<CodeLayout lang="typeScript">
+
+```ts
+class Store {
+	constructor(
+		public storeName: string,
+		public products: Array<string>,
+		public stockOfProduct: number,
+		public costOfProductByProduct: number
+	) {
+		this.storeName = storeName;
+		this.products = products;
+		this.stockOfProduct = stockOfProduct;
+		this.costOfProductByProduct = costOfProductByProduct;
+	}
+
+	useProduct(): void {
+		console.log('using product');
+		this.stockOfProduct -= this.costOfProductByProduct;
+	}
+
+	logStockOfCheeseReamining(): void {
+		console.log(`>${this.storeName}<`);
+		console.log(`The stock of cheese remaining is: ${this.stockOfProduct}`);
+	}
+}
+
+const denoPizzaLandia = new Store(
+	'🍕 DenoPizzaLandia 🍕',
+	['pizza of cheese', 'hamburguer of cheese', 'hot dog with cheese'],
+	1000,
+	100
+);
+
+denoPizzaLandia.useProduct(); // using product
+denoPizzaLandia.useProduct(); // using product
+denoPizzaLandia.useProduct(); // using product
+denoPizzaLandia.logStockOfCheeseReamining();
+// >🍕 DenoPizzaLandia 🍕<
+// The stock of cheese remaining is: 700
+```
+
+</CodeLayout>
+
+Y con esto ya tenemos un codigo mas entendible y mas facil de leer.
+Apartir de esto ya vemos que podemos crear objetos de una manera mas sencilla y entendible.
+
+Cont esto ya tenemos por que el paradigma de programacion **_Orientado a Objetos_** es tan importante y tan usado en la actualidad.
+
+ya con esto solo queda decir que si quieres entender mejor el **_Orientado a Objetos_** te recomiendo que practiques y que leas mas sobre el tema.Esto solo es una introduccion a este paradigma de programacion.
+
+</PostLayout>
+```

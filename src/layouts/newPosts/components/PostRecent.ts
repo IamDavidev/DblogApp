@@ -118,6 +118,10 @@ export class PostRecent extends LitElement {
 			padding: 32px;
 			min-height: 600px;
 			box-sizing: border-box;
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
 		}
 
 		.container__image--picture > img {

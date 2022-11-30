@@ -7,7 +7,7 @@ import {
 } from 'lit';
 import { customElement } from 'lit/decorators.js';
 
-const countSnowflakes = Array.from({ length: 300 }).fill('❄️') as string[];
+const countSnowflakes = Array.from({ length: 200 }).fill('❄️') as string[];
 
 const tagName = 'snow-decoration';
 @customElement(tagName)
@@ -53,7 +53,7 @@ export class Snow extends LitElement {
 			snowflakeElement.style.position = 'absolute';
 			snowflakeElement.style.top = `${Math.random() * 100}%`;
 			snowflakeElement.style.left = `${Math.random() * 100}%`;
-			snowflakeElement.style.fontSize = `${Math.random() * 10}px`;
+			snowflakeElement.style.fontSize = `${Math.random() * 10 + 2}px`;
 			snowflakeElement.style.setProperty(
 				'--duration-animation',
 				`${this.randomValue() + 10}s`

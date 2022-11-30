@@ -6,6 +6,7 @@ import { TitlePost } from './compoenents/TitlePost';
 import Elipse from '../../assets/images/icons/elipse.svg';
 import Footer from '@components/Footer.astro';
 import News from '../newPosts/index.astro';
+import { Snow } from '@components/snow';
 
 export interface Props {
 	content: {
@@ -29,6 +30,7 @@ const updatedDate = update.split(' ').slice(0, 2).join(' ');
 		<BaseHead title={title} description={description} />
 	</head>
 	<body>
+		<Snow client:visible />
 		<Navbar />
 		<main class='main-post'>
 			<article class='main-post__article'>
@@ -64,6 +66,10 @@ const updatedDate = update.split(' ').slice(0, 2).join(' ');
 		<News />
 		<Footer />
 		<style>
+			.main-post {
+				position: relative;
+				z-index: 3;
+			}
 			.main-post___article--header {
 				margin-bottom: 5rem;
 				position: relative;

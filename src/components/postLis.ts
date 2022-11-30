@@ -64,7 +64,7 @@ export class PostList extends LitElement {
 		}
 		.post-info__header > header {
 			display: flex;
-			align-items: flex-start;
+			align-items: center;
 			justify-content: flex-start;
 			gap: 2rem;
 		}

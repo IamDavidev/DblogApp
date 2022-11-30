@@ -3,6 +3,7 @@ import type { Langs } from '~/interfaces/langs.enum';
 import BaseHead from './BaseHead.astro';
 import Footer from './Footer.astro';
 import Navbar from './Navbar.astro';
+import { Snow } from './snow';
 
 interface Props {
 	title: string;
@@ -17,10 +18,19 @@ const { description, title, lang } = Astro.props;
 <html lang={lang}>
 	<head>
 		<BaseHead title={title} description={description} />
+		<style>
+			.container-blog {
+				position: relative;
+				z-index: 3;
+			}
+		</style>
 	</head>
 	<body>
-		<Navbar />
-		<slot />
-		<Footer />
+		<Snow client:visible />
+		<div class='container-blog'>
+			<Navbar />
+			<slot />
+			<Footer />
+		</div>
 	</body>
 </html>

@@ -10,6 +10,11 @@ const tags: String[] = [
 	'golang',
 	'denojs',
 	'orm',
+	'DDD',
+	'TDD',
+	'Architecture Hexagonale',
+	'Clean Architecture',
+	'Clean Code',
 ];
 
 export default tags;

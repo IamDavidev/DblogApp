@@ -54,12 +54,12 @@ export class PostList extends LitElement {
 			align-items: flex-start;
 			gap: 1rem;
 			overflow: hidden;
-			max-height: 150px;
 		}
 
 		.post-info__header {
 			display: flex;
 			flex-direction: column;
+			flex-wrap: wrap;
 			gap: 1rem;
 		}
 		.post-info__header > header {
@@ -70,9 +70,11 @@ export class PostList extends LitElement {
 		}
 
 		.post-info__image {
-			width: 160px;
-			max-width: 160px;
-			height: 150px;
+			width: 180px;
+			max-width: 180px;
+			margin: 0 auto;
+			min-height: 150px;
+			height: auto;
 			object-fit: cover;
 			border-radius: 1rem;
 		}
@@ -93,20 +95,22 @@ export class PostList extends LitElement {
 		.post-data {
 			display: flex;
 			flex-direction: column;
+			flex-wrap: wrap;
 			justify-content: center;
 			align-items: flex-end;
-			/* padding: 1rem 0; */
 			min-width: 160px;
 		}
 		.post-data > .user-post {
 			display: flex;
 			align-items: center;
 			gap: 1rem;
+			flex-wrap: wrap;
 			color: var(--effect--color);
 		}
 
 		.post-info__header--update {
 			display: flex;
+			flex-wrap: wrap;
 			flex-direction: row;
 			justify-content: center;
 			align-items: center;
@@ -126,6 +130,34 @@ export class PostList extends LitElement {
 		}
 		.post-tags {
 			margin-left: calc(3rem + 160px);
+		}
+		@media (max-width: 768px) {
+			.post-info__header--title {
+				text-align: center;
+			}
+			.post-data {
+				width: 100%;
+			}
+			.long-title {
+				max-width: 100%;
+				text-align: center;
+			}
+			.post-info__image {
+				height: 200px;
+			}
+			.post {
+				flex-direction: column;
+			}
+			.post-info {
+				flex-direction: column;
+			}
+			.post-data {
+				flex-direction: row;
+				justify-content: space-between;
+			}
+			.post-info__header > header {
+				flex-direction: column;
+			}
 		}
 	`;
 

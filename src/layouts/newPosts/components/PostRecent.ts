@@ -132,7 +132,7 @@ export class PostRecent extends LitElement {
 			height: 250px;
 			border-radius: 1rem;
 		}
-		@media (max-width: 768px) {
+		@media (max-width: 1024px) {
 			.new-post {
 				width: 320px;
 			}

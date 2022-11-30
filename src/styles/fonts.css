@@ -29,23 +29,7 @@
 }
 
 @font-face {
-	font-family: 'Fira-code-bold';
-	font-family: bold;
-	src: url('../assets/fonts/FiraCode-bold.ttf');
-}
-@font-face {
-	font-family: 'Lilex';
-	font-weight: regular;
-	src: url('../assets/fonts/Lilex-Regular.ttf');
-}
-@font-face {
-	font-family: 'Lilex';
-	font-weight: bold;
-	src: url('../assets/fonts/Lilex-Bold.ttf');
-}
-
-@font-face {
-	font-family: 'Lilex';
-	font-weight: italic;
-	src: url('../assets/fonts/Lilex-Italic.ttf');
+	font-family: 'JetBrainsMono';
+	font-weight: normal;
+	src: url('../assets/fonts/JetBrainsMono-Light.ttf');
 }

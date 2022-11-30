@@ -132,12 +132,23 @@ export class PostRecent extends LitElement {
 			height: 250px;
 			border-radius: 1rem;
 		}
-		@media (max-width: 426px) {
+		@media (max-width: 768px) {
 			.new-post {
-				margin: 0 auto;
+				width: 320px;
 			}
 			.container__image--picture > img {
 				width: 100%;
+			}
+		}
+
+		@media (max-width: 426px) {
+			.new-post {
+				width: 100%;
+				margin: 0 auto;
+				padding: 0.5rem;
+			}
+			.container__image--picture > img {
+				margin: 0 auto;
 			}
 		}
 	`;

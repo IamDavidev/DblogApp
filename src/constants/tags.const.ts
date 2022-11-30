@@ -1,15 +1,13 @@
 const tags: String[] = [
 	'web',
-	'netlify',
 	'error',
 	'terminal',
 	'react',
-	'config',
 	'javascript',
 	'typescript',
-	'golang',
-	'denojs',
 	'orm',
+	'DDD',
+	'deno',
 ];
 
 export default tags;

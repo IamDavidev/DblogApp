@@ -55,9 +55,25 @@ export class TitleBlog extends LitElement {
 				font-size: 200px;
 			}
 		} */
+		@media (max-width: 1120px) {
+			.container__title {
+				font-size: 220px;
+			}
+		}
+		@media (max-width: 768px) {
+			.container__title {
+				font-size: 160px;
+			}
+		}
+
 		@media (max-width: 426px) {
 			.container__title {
-				font-size: 112px;
+				font-size: 110px;
+			}
+		}
+		@media (max-width: 375px) {
+			.container__title {
+				font-size: 90px;
 			}
 		}
 

@@ -3,7 +3,7 @@
 	TODO change the font to Roboto 
  */
 .main-post {
-	max-width: 60%;
+	max-width: 70%;
 	margin: 0rem auto;
 	position: relative;
 	z-index: 99;
@@ -12,6 +12,13 @@
 	font-family: 'Roboto', sans-serif;
 	font-size: 1rem;
 }
+
+@media (max-width: 768px) {
+	.main-post {
+		max-width: 90%;
+	}
+}
+
 .post-pre {
 	padding: 1rem 1.5rem;
 	margin: 0;

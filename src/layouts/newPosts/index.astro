@@ -35,6 +35,11 @@ posts.forEach(post => {
 </section>
 
 <style>
+	.container-new-post__posts {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
 	.container-new-posts {
 		margin: 5rem 0;
 	}
@@ -46,6 +51,22 @@ posts.forEach(post => {
 		font-size: 96px;
 		color: var(--primary--color);
 		margin: 2rem 0;
+	}
+
+	@media (max-with: 1024px) {
+		.container-new-post__posts {
+			flex-wrap: wrap;
+		}
+	}
+	@media (max-width: 768px) {
+		.container-new-posts__title {
+			font-size: 80px;
+		}
+	}
+	@media (max-width: 425px) {
+		.container-new-posts__title {
+			font-size: 64px;
+		}
 	}
 	@media (min-width: 1024px) {
 		.container-new-post__posts {

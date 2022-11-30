@@ -50,11 +50,6 @@ export class TitleBlog extends LitElement {
 			right: -50%;
 		}
 
-		/* @media max-widt:480px) {
-			.container__title {
-				font-size: 200px;
-			}
-		} */
 		@media (max-width: 1120px) {
 			.container__title {
 				font-size: 220px;

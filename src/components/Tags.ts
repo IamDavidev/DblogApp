@@ -33,10 +33,6 @@ export class RenderTags extends LitElement {
 
 	@property({ type: String }) tags = '';
 
-	firstUpdated(): void {
-		console.log(this.tags);
-	}
-
 	render(): TemplateResult<1> {
 		const renderTags = this.tags.split(',').map(tag => {
 			return html`<a class="container__tags--tag" href="/posts/${tag}">

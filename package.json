@@ -5,11 +5,11 @@
   "author": "David Lezama",
   "email": "davidlez2mgk@gmail.com",
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "run::dev": "astro dev",
+    "run::start": "astro dev",
+    "run::build": "astro build",
+    "run::preview": "astro preview",
+    "run::astro": "astro"
   },
   "dependencies": {
     "@astrojs/mdx": "0.11.1",

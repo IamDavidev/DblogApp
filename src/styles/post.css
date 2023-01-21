@@ -24,6 +24,7 @@
 	margin: 0;
 	background-color: var(--gray--color);
 	border-radius: 0 0 1rem 1rem;
+	font-size: 0.8rem;
 	font-family: 'JetBrainsMono';
 	font-weight: bold;
 }
@@ -58,7 +59,7 @@
 .post-strong {
 	font-family: 'JetBrainsMono';
 	font-weight: bolder;
-	font-size: 1.1rem;
+	font-size: 1rem;
 	color: var(--primary--color);
 }
 .post-link {

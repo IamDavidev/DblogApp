@@ -1,0 +1,60 @@
+---
+layout: ../../layouts/BlogPost/index.astro
+#  recentPosts: ../../components/RecentPosts.astro
+new: true
+tags:
+  - DDD
+  - typescript
+title: Value Objects con TypeScript.
+description: Como implementar y usar los Value Objects en TypeScript en una implementación de DDD
+update: today
+image: /images-post/POO_IN_TS.png
+userName: David Lezama
+read: 20 min
+---
+
+import PostLayout from '../../layouts/post/components/WrapperPostLayout.astro';
+import CodeLayout from '../../layouts/post/components/CodeBlockLayout.astro';
+
+<PostLayout>
+
+Todo este concepto de **Value Objects** tiene que venir acompañado de un concepto que se ocupa de manejar el estado de los objetos, este concepto es el **Entity**. En este post solo hablaremos de los **Value Objects**.
+
+Partiendo de una base.
+supongamos que estamos modelando nuestro dominio y creamos una entidad o modelo que se llama **User** que basicament hace referencia a lo que seria un Usuarion en nuestra applicaccion. Esta entidad tiene los siguientes atributos:
+
+```typescript
+class UserModel {
+	private constructor(
+		private _id: string,
+		public name: string,
+		public email: string,
+		public password: string,
+		public createdAt: Date,
+		public updatedAt: Date
+	) {}
+	/**
+	 * application patter factory
+	 */
+	static createUser(name: string, email: string, password: string) {
+		return new UserModel(
+			uuidv4(),
+			name,
+			email,
+			password,
+			new Date(),
+			new Date()
+		);
+	}
+}
+```
+
+En este caso tenemos un modelo que tiene un constructor privado y un metodo estatico que nos permite crear una instancia de este modelo.
+
+## ¿Que es un Value Object?
+
+Ahora para definir que es tenemos que ver a nuestro usuario y ver que **User** es una entidad fuerte y por lo tanto los value objects son valores que se identifican por su propio valor , no por su identidad y que a final de cuentas nos ayudan crear un entidad, por que si tenemos un email solo en nuestro dominio este no significa nada, pero si es parte de un usuario si tiene un valor ya que no puede haber dos usuarios con el mismo email suponiendo que fuera unico y que no se repitiera pues seria la misma instancia.
+
+Pero a diferencia de **User** si podemos tener dos **name** que sean iguales, por ejemplo **David** y **David** son dos nombres que son iguales pero no son la misma instancia.
+
+</PostLayout>

@@ -185,10 +185,7 @@ export class PostRecent extends LitElement {
 						>
 							${this.title}
 						</a>
-						<p class="container__content--description">
-							Como solucionar el error de netlify not found al deployear una app
-							en netlify...
-						</p>
+						<p class="container__content--description">${this.description}</p>
 					</div>
 				</div>
 				<footer class="new-post-footer">

@@ -14,7 +14,7 @@ interface Props {
 const { description, title, lang } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang={lang}>
 	<head>
 		<BaseHead title={title} description={description} />
@@ -24,6 +24,10 @@ const { description, title, lang } = Astro.props;
 				z-index: 3;
 			}
 		</style>
+		<script
+			defer
+			data-domain='dblog-app.vercel.app'
+			src='https://plausible.io/js/script.js'></script>
 	</head>
 	<body>
 		<div class='container-blog'>

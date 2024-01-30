@@ -22,6 +22,7 @@ const { description, title, lang } = Astro.props;
 			.container-blog {
 				position: relative;
 				z-index: 3;
+				min-height: 100vh;
 			}
 		</style>
 		<script
@@ -33,7 +34,6 @@ const { description, title, lang } = Astro.props;
 		<div class='container-blog'>
 			<Navbar />
 			<slot />
-			<Footer />
 		</div>
 	</body>
 </html>
